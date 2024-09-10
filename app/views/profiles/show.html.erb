@@ -1,0 +1,18 @@
+<!-- app/views/profiles/show.html.erb -->
+<h1><%= @profile.username %>'s Profile</h1>
+
+<ul>
+  <li>Gluten Free: <%= @profile.gluten %></li>
+  <li>Dairy Free: <%= @profile.dairy %></li>
+  <li>Peanut Free: <%= @profile.peanut %></li>
+  <li>Seafood Free: <%= @profile.seafood %></li>
+  <li>Soy Free: <%= @profile.soy %></li>
+  <li>Egg Free: <%= @profile.egg %></li>
+  <li>Sesame Free: <%= @profile.sesame %></li>
+  <li>Sugar Free: <%= @profile.sugar %></li>
+  <li>Vegetarian: <%= @profile.vegetarian %></li>
+  <li>Vegan: <%= @profile.vegan %></li>
+</ul>
+
+<%= link_to 'Edit Profile', edit_user_profile_path(@user, @profile) %>
+<%= link_to 'Back', user_profiles_path(@user) %>

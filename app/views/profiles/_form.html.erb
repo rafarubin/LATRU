@@ -1,0 +1,52 @@
+<!-- app/views/profiles/_form.html.erb -->
+<%= simple_form_for([@user, @profile]) do |form| %>
+
+  <div class="form-group">
+    <%= form.input :username, label: 'Username', placeholder: 'Enter your username' %>
+  </div>
+
+  <!-- Campos de selección tipo checkbox para restricciones alimentarias -->
+  <div class="form-group">
+    <%= form.input :gluten, as: :boolean, label: 'Gluten Free' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.input :dairy, as: :boolean, label: 'Dairy Free' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.input :peanut, as: :boolean, label: 'Peanut Free' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.input :seafood, as: :boolean, label: 'Seafood Free' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.input :soy, as: :boolean, label: 'Soy Free' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.input :egg, as: :boolean, label: 'Egg Free' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.input :sesame, as: :boolean, label: 'Sesame Free' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.input :sugar, as: :boolean, label: 'Sugar Free' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.input :vegetarian, as: :boolean, label: 'Vegetarian' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.input :vegan, as: :boolean, label: 'Vegan' %>
+  </div>
+
+  <div class="actions">
+    <%= form.button :submit %>
+  </div>
+<% end %>
