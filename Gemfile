@@ -75,5 +75,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
+gem "cloudinary"
 gem "ruby-openai"
