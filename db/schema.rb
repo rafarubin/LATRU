@@ -10,9 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_09_212124) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_09_215134) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.string "brand"
+    t.float "quantity"
+    t.float "portiion_nbr"
+    t.float "portion_qty"
+    t.boolean "gluten"
+    t.boolean "dairy"
+    t.boolean "penaut"
+    t.boolean "seafood"
+    t.boolean "soy"
+    t.boolean "egg"
+    t.boolean "sesame"
+    t.boolean "sugar"
+    t.boolean "vegetarian"
+    t.boolean "vegan"
+    t.float "calories"
+    t.float "fat"
+    t.float "fat_trans"
+    t.float "carb"
+    t.float "protein"
+    t.float "sugarqty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
