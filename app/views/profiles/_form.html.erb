@@ -1,52 +1,52 @@
-<!-- app/views/profiles/_form.html.erb -->
 <%= simple_form_for([@user, @profile]) do |form| %>
 
   <div class="form-group">
-    <%= form.input :username, label: 'Username', placeholder: 'Enter your username' %>
+    <%= form.input :username, label: 'Usuario', placeholder: 'Ingresa tu usario' %>
   </div>
 
   <!-- Campos de selección tipo checkbox para restricciones alimentarias -->
   <div class="form-group">
-    <%= form.input :gluten, as: :boolean, label: 'Gluten Free' %>
+    <%= form.input :gluten, as: :boolean, label: 'No Gluten' %>
   </div>
 
   <div class="form-group">
-    <%= form.input :dairy, as: :boolean, label: 'Dairy Free' %>
+    <%= form.input :dairy, as: :boolean, label: 'No Lacteos' %>
   </div>
 
   <div class="form-group">
-    <%= form.input :peanut, as: :boolean, label: 'Peanut Free' %>
+    <%= form.input :peanut,  as: :boolean, label: 'No Nueces' %>
   </div>
 
   <div class="form-group">
-    <%= form.input :seafood, as: :boolean, label: 'Seafood Free' %>
+    <%= form.input :seafood, as: :boolean, label: 'No comida marina' %>
   </div>
 
   <div class="form-group">
-    <%= form.input :soy, as: :boolean, label: 'Soy Free' %>
+    <%= form.input :soy, as: :boolean, label: 'No Soya' %>
   </div>
 
   <div class="form-group">
-    <%= form.input :egg, as: :boolean, label: 'Egg Free' %>
+    <%= form.input :egg, as: :boolean, label: 'No huevos' %>
   </div>
 
   <div class="form-group">
-    <%= form.input :sesame, as: :boolean, label: 'Sesame Free' %>
+    <%= form.input :sesame, as: :boolean, label: 'No ajonjoli' %>
   </div>
 
   <div class="form-group">
-    <%= form.input :sugar, as: :boolean, label: 'Sugar Free' %>
+    <%= form.input :sugar, as: :boolean, label: 'No Azucar' %>
   </div>
 
   <div class="form-group">
-    <%= form.input :vegetarian, as: :boolean, label: 'Vegetarian' %>
+    <%= form.input :vegetarian, as: :boolean, label: 'Vegetariano' %>
   </div>
 
   <div class="form-group">
-    <%= form.input :vegan, as: :boolean, label: 'Vegan' %>
+    <%= form.input :vegan, as: :boolean, label: 'Vegano' %>
   </div>
 
   <div class="actions">
-    <%= form.button :submit %>
+    <%= form.submit 'Nuevo Perfil' %>
+    <%= link_to 'Todos mis Perfiles', user_profiles_path(@user) %>
   </div>
 <% end %>

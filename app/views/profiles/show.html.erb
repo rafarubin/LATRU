@@ -1,18 +1,29 @@
-<!-- app/views/profiles/show.html.erb -->
-<h1><%= @profile.username %>'s Profile</h1>
+<div class="container my-4">
+  <div class="row d-flex justify-content-center">
+    <div class="col-8 bg-white p-4 shadow">
 
-<ul>
-  <li>Gluten Free: <%= @profile.gluten %></li>
-  <li>Dairy Free: <%= @profile.dairy %></li>
-  <li>Peanut Free: <%= @profile.peanut %></li>
-  <li>Seafood Free: <%= @profile.seafood %></li>
-  <li>Soy Free: <%= @profile.soy %></li>
-  <li>Egg Free: <%= @profile.egg %></li>
-  <li>Sesame Free: <%= @profile.sesame %></li>
-  <li>Sugar Free: <%= @profile.sugar %></li>
-  <li>Vegetarian: <%= @profile.vegetarian %></li>
-  <li>Vegan: <%= @profile.vegan %></li>
-</ul>
+      <h1><%= @profile.username %>Perfil</h1>
 
-<%= link_to 'Edit Profile', edit_user_profile_path(@user, @profile) %>
-<%= link_to 'Back', user_profiles_path(@user) %>
+      <ul>
+        <li>Gluten Free: <%= @profile.gluten %></li>
+        <li>Dairy Free: <%= @profile.dairy %></li>
+        <li>Peanut Free: <%= @profile.peanut %></li>
+        <li>Seafood Free: <%= @profile.seafood %></li>
+        <li>Soy Free: <%= @profile.soy %></li>
+        <li>Egg Free: <%= @profile.egg %></li>
+        <li>Sesame Free: <%= @profile.sesame %></li>
+        <li>Sugar Free: <%= @profile.sugar %></li>
+        <li>Vegetarian: <%= @profile.vegetarian %></li>
+        <li>Vegan: <%= @profile.vegan %></li>
+      </ul>
+
+      <%= link_to 'Edit Profile', edit_user_profile_path(@user, @profile) %>
+      <%= link_to 'Back', user_profiles_path(@user) %>
+
+      <%= link_to "Eliminar Perfil" , user_profile_path(@user, @profile), data: { turbo_method: :delete, turbo_confirm: "¿Estas segur@ que deseas eliminar el perfil?" }, class: "btn btn-danger"%>
+
+      <%= form_with url: user_profile_path(@user, @profile), method: :delete, id: "delete_profile_form", style: "display: none;" do %>
+      <% end %>
+    </div>
+  </div>
+</div>
