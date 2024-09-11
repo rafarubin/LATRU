@@ -16,4 +16,5 @@ Rails.application.routes.draw do
       resources :historicals, only: [:index, :show, :destroy]
     end
   end
+  resources :barcodes, only: [:new, :create, :show]
 end
