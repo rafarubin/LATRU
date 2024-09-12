@@ -14,7 +14,12 @@ class ProductsController < ApplicationController
     return unless @product.save
     return unless @product.set_product_attributes
 
-    redirect_to product_path(@product)
+    @profile = current_user.profiles[0]
+    @historical = Historical.new(@product, @profile)
+    @historical.save
+    @historical.calculate_results
+
+    redirect_to historical_path(@historical)
   end
 
 
