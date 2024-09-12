@@ -78,3 +78,4 @@ group :test do
 end
 gem "cloudinary"
 gem "ruby-openai"
+gem "solid_queue", "0.3.1"
