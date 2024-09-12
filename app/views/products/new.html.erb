@@ -1,4 +1,5 @@
 <%= simple_form_for [@user, @profile, @product] do |f| %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :barcode, :as => :hidden, input_html: { value: params[:param1] } %>
   <%= f.submit %>
 <% end %>

@@ -6,7 +6,7 @@
  Porciones por envase: <%= @product.portion_qty %> <br>
  Apto para gluten free: <%= @product.gluten %> <br>
  Apto para intolerante a la lactosa: <%= @product.dairy %> <br>
- Apto para alérgicos al maní: <%= @product.penaut %> <br>
+ Apto para alérgicos al maní: <%= @product.peanut %> <br>
  Apto para alérgicos a mariscos: <%= @product.seafood %> <br>
  Apto para alérgicos a la soya: <%= @product.soy %> <br>
  Apto para alérgicos al huevo: <%= @product.egg %> <br>
@@ -20,6 +20,7 @@
  Carbohidratos: <%= @product.carb %> <br>
  Proteínas <%= @product.protein %> <br>
  Azúcar   <%= @product.sugarqty %> <br>
+ Código de barras <%= @product.barcode %>
 
   <%#=  Cloudinary::Utils.cloudinary_url(@product.photos[0].key, secure: true) %>
 <%# version = "1/development" %>

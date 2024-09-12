@@ -66,7 +66,7 @@ class Product < ApplicationRecord
       portion_qty: hash["porciones_por_empaque"],
       gluten: hash["apto_gluten_free"],
       dairy: hash["apto_intolertante_lactosa"],
-      penaut: hash["apto_alergia_mani"],
+      peanut: hash["apto_alergia_mani"],
       seafood: hash["apto_alergia_mariscos"],
       soy: hash["apto_alergia_soya"],
       egg: hash["apto_alergia_huevos"],
