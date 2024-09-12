@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(photos: [])
+    params.require(:product).permit(:barcode, photos: [])
   end
 
 
