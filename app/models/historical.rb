@@ -8,13 +8,16 @@ class Historical < ApplicationRecord
     attributes.each do |attribute|
       product_value = product.send(attribute)
       profile_value = profile.send(attribute)
+
       if product_value == false && profile_value == true
-        self.result = "Producto no es apto para que lo consumas"
+        results = "Producto no es apto para que lo consumas"
+        self.update(results: results)
         return
       end
     end
 
-    self.result = "Producto sí es apto para que lo consumas"
-    self.save
+    results = "Producto sí es apto para que lo consumas"
+    raise
+    self.update(results: results)
   end
 end

@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def new
+    @user = User.find(params[:user_id])
+    @profile = Profile.find(params[:profile_id])
     @product = Product.new
   end
 
@@ -14,12 +16,13 @@ class ProductsController < ApplicationController
     return unless @product.save
     return unless @product.set_product_attributes
 
-    @profile = current_user.profiles[0]
-    @historical = Historical.new(@product, @profile)
+    @user = User.find(params[:user_id])
+    @profile = Profile.find(params[:profile_id])
+    @historical = Historical.new(product_id: @product.id, profile_id: @profile.id)
     @historical.save
-    @historical.calculate_results
+    @historical.calculate_result
 
-    redirect_to historical_path(@historical)
+    redirect_to user_profile_product_path(@user, @profile, @product), notice: "#{@historical.results}"
   end
 
 

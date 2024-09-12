@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_12_175850) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_12_211250) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_12_175850) do
   create_table "historicals", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "profile_id", null: false
+    t.bigint "product_id", null: false
+    t.string "results"
+    t.index ["product_id"], name: "index_historicals_on_product_id"
+    t.index ["profile_id"], name: "index_historicals_on_profile_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -208,6 +213,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_12_175850) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "historicals", "products"
+  add_foreign_key "historicals", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
