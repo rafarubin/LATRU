@@ -28,10 +28,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = @user.profiles.find(params[:id])
-
     if @profile.update(profile_params)
-      redirect_to user_profiles_path(@user), notice: 'Perfil actualizado exitosamente.'
+      redirect_to user_profiles_path(@user), notice: 'Perfil actualizado con éxito.'
     else
       render :edit
     end
@@ -51,11 +49,15 @@ class ProfilesController < ApplicationController
   def set_profile
     @profile = @user.profiles.find_by(id: params[:id])
     if @profile.nil?
-      redirect_to user_profiles_path(@user), alert: "Profile not found."
+      redirect_to user_profiles_path(@user), alert: "Perfil no encontrado"
     end
   end
 
   def profile_params
     params.require(:profile).permit(:username, :gluten, :dairy, :peanut, :seafood, :soy, :egg, :sesame, :sugar, :vegetarian, :vegan)
+  end
+
+  def assign_random_color
+    self.color = COLORS.sample
   end
 end

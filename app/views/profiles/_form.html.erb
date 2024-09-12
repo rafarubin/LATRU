@@ -1,52 +1,67 @@
-<%= simple_form_for([@user, @profile]) do |form| %>
+<div class="container my-4">
+  <div class="row d-flex justify-content-center">
+    <div class="col-8 bg-white p-4 shadow">
+      <%= simple_form_for([@user, @profile]) do |form| %>
 
-  <div class="form-group">
-    <%= form.input :username, label: 'Usuario', placeholder: 'Ingresa tu usario' %>
-  </div>
+        <div class="form-group">
+          <%= form.input :username, label: 'Usuario', placeholder: 'Usuario de 06 caracteres' %>
+        </div>
 
-  <!-- Campos de selección tipo checkbox para restricciones alimentarias -->
-  <div class="form-group">
-    <%= form.input :gluten, as: :boolean, label: 'No Gluten' %>
-  </div>
+        <div class="form-group">
+          <div class="checkbox-group d-flex flex-wrap">
+            <div class="tag-item">
+              <%= form.check_box :gluten, class: 'tag-selector' %>
+              <%= form.label :gluten, 'No Gluten', class: 'tag-selector-label' %>
+            </div>
+            <div class="tag-item">
+              <%= form.check_box :dairy, class: 'tag-selector' %>
+              <%= form.label :dairy, 'No Lacteos', class: 'tag-selector-label' %>
+            </div>
+            <div class="tag-item">
+              <%= form.check_box :peanut, class: 'tag-selector' %>
+              <%= form.label :peanut, 'No Nueces', class: 'tag-selector-label' %>
+            </div>
+            <div class="tag-item">
+              <%= form.check_box :seafood, class: 'tag-selector' %>
+              <%= form.label :seafood, 'No comida marina', class: 'tag-selector-label' %>
+            </div>
+            <div class="tag-item">
+              <%= form.check_box :soy, class: 'tag-selector' %>
+              <%= form.label :soy, 'No Soya', class: 'tag-selector-label' %>
+            </div>
+            <div class="tag-item">
+              <%= form.check_box :egg, class: 'tag-selector' %>
+              <%= form.label :egg, 'No huevos', class: 'tag-selector-label' %>
+            </div>
+            <div class="tag-item">
+              <%= form.check_box :sesame, class: 'tag-selector' %>
+              <%= form.label :sesame, 'No ajonjoli', class: 'tag-selector-label' %>
+            </div>
+            <div class="tag-item">
+              <%= form.check_box :sugar, class: 'tag-selector' %>
+              <%= form.label :sugar, 'No Azucar', class: 'tag-selector-label' %>
+            </div>
+            <div class="tag-item">
+              <%= form.check_box :vegetarian, class: 'tag-selector' %>
+              <%= form.label :vegetarian, 'Vegetariano', class: 'tag-selector-label' %>
+            </div>
+            <div class="tag-item">
+              <%= form.check_box :vegan, class: 'tag-selector' %>
+              <%= form.label :vegan, 'Vegano', class: 'tag-selector-label' %>
+            </div>
+          </div>
+        </div>
 
-  <div class="form-group">
-    <%= form.input :dairy, as: :boolean, label: 'No Lacteos' %>
+        <div class="actions">
+          <% if @profile.new_record? %>
+            <%= form.submit 'Crear Perfil', class: "btn btn-primary btn-sm" %>
+            <%= link_to 'Mis Perfiles', user_profiles_path(@user), class: "btn btn-outline-secondary" %>
+          <% else %>
+            <%= form.submit 'Guardar', class: 'btn btn-primary' %>
+            <%= link_to 'Back', user_profile_path(@user, @profile), class: 'btn btn-outline-secondary' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= form.input :peanut,  as: :boolean, label: 'No Nueces' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.input :seafood, as: :boolean, label: 'No comida marina' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.input :soy, as: :boolean, label: 'No Soya' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.input :egg, as: :boolean, label: 'No huevos' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.input :sesame, as: :boolean, label: 'No ajonjoli' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.input :sugar, as: :boolean, label: 'No Azucar' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.input :vegetarian, as: :boolean, label: 'Vegetariano' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.input :vegan, as: :boolean, label: 'Vegano' %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Nuevo Perfil' %>
-    <%= link_to 'Todos mis Perfiles', user_profiles_path(@user) %>
-  </div>
-<% end %>
+</div>
