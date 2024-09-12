@@ -4,7 +4,7 @@
   <div class="text-overlay">
     <h1><strong>Consulta de producto</strong></h1>
     <div>
-      <%= simple_form_for @barcode do |f| %>
+      <%= simple_form_for [@user, @profile, @barcode] do |f| %>
         <%= f.input :photo, as: :file, label: "Foto delantera" %>
         <%#= f.association :user_id, label: "Usuario" %>
         <%= f.submit "Nuevo prod", class: "btn btn-primary fs-5" %>

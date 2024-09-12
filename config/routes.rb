@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :profiles do
       resources :products
       resources :historicals, only: [:index, :show, :destroy]
+      resources :barcodes, only: [:new, :create, :show]
     end
   end
-  resources :barcodes, only: [:new, :create, :show]
 end

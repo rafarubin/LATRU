@@ -2,11 +2,15 @@ class BarcodesController < ApplicationController
 
   def new
     @barcode = Barcode.new
+    @user = User.find(params[:user_id])
+    @profile = Profile.find(params[:profile_id])
   end
 
 
   def create
     # Enviar una foto a CL
+    @user = User.find(params[:user_id])
+    @profile = Profile.find(params[:profile_id])
     @barcode = Barcode.new(barcode_params)
     if @barcode.save
       if @barcode.photo.attached?
@@ -21,8 +25,19 @@ class BarcodesController < ApplicationController
       @barcode.barcode_num = @barcode.barcode_scan # alamceno en DB
       @barcode.save
       @search = @barcode.product_exists?
+      # logica de match
 
-      redirect_to @barcode, notice: "Producto creado exitosamente y foto subida a Cloudinary #{img_url}"
+      if @search
+        # existe, llamo al product, profile
+        @historical = Historical.new(product_id: @search, profile_id: @profile.id)
+        @historical.save
+        @historical.calculate_result
+        redirect_to user_profile_barcode_path(@user, @profile, @barcode), notice: "#{@historical.results}"
+      else
+        # es nuevo, lo creo
+        # envio de param1 con el valor del barcode escaneado
+        redirect_to new_user_profile_product_path(@user, @profile, @barcode, param1: @barcode.barcode_num)
+      end
     else
       render :new, alert: "Error al crear el producto."
     end
@@ -31,9 +46,9 @@ class BarcodesController < ApplicationController
 
   def show
     @barcode = Barcode.find(params[:id])
-    url = 'https://res.cloudinary.com/dgsvzneh5/image/upload/v1/development/4jn9fkme8j6fs65s11rn7617pt81?_a=BACADKBn'
+    @user = User.find(params[:user_id])
+    @profile = Profile.find(params[:profile_id])
     @answer = @barcode.barcode_scan
-    # http://127.0.0.1:3000/barcodes/15
     @search = @barcode.product_exists?
   end
 

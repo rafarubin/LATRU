@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_12_211250) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_12_225420) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_12_211250) do
     t.float "portion_qty"
     t.boolean "gluten"
     t.boolean "dairy"
-    t.boolean "penaut"
+    t.boolean "peanut"
     t.boolean "seafood"
     t.boolean "soy"
     t.boolean "egg"
