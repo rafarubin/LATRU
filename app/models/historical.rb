@@ -3,7 +3,7 @@ class Historical < ApplicationRecord
   belongs_to :product
 
   def calculate_result
-    attributes = %w[gluten penaut seafood soy egg sesame sugar vegetarian vegan dairy]
+    attributes = %w[gluten peanut seafood soy egg sesame sugar vegetarian vegan dairy]
 
     attributes.each do |attribute|
       product_value = product.send(attribute)
@@ -17,7 +17,6 @@ class Historical < ApplicationRecord
     end
 
     results = "Producto sí es apto para que lo consumas"
-    raise
     self.update(results: results)
   end
 end

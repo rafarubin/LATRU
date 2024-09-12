@@ -1,0 +1,17 @@
+<h1>Producto Consultado - Codigo de Barras</h1>
+
+<div class = "container mt-5 text-justify product-background" style="max-width: 70%;">
+  <div class="text-overlay">
+    <h1><strong>Consulta de producto</strong></h1>
+    <div>
+      <%= simple_form_for [@user, @profile, @barcode] do |f| %>
+        <%= f.input :photo, as: :file, label: "Foto delantera" %>
+        <%#= f.association :user_id, label: "Usuario" %>
+        <%= f.submit "Nuevo prod", class: "btn btn-primary fs-5" %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <%= link_to "Volver a la lista de historicos" %>
+  </div>
+</div>
