@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_11_224515) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_12_192825) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_224515) do
   end
 
   create_table "barcodes", force: :cascade do |t|
-    t.integer "barcode_num"
+    t.string "barcode_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,6 +77,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_224515) do
     t.float "sugarqty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "barcode"
   end
 
   create_table "profiles", force: :cascade do |t|

@@ -19,4 +19,14 @@ class Barcode < ApplicationRecord
 
     return chatgpt_response["choices"][0]["message"]["content"]
   end
+
+  def product_exists?
+    prod = Product.find_by(barcode: self.barcode_num)
+    if prod
+      prod.id
+    else
+      false
+    end
+  end
+
 end
