@@ -1,9 +1,9 @@
 class Profile < ApplicationRecord
   belongs_to :user
   before_create :assign_random_color
+  has_many :historicals, dependent: :destroy
 
   validates :username, presence: true
-
   validates :username, length: { maximum: 12 }
 
   private
