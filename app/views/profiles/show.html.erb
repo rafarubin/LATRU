@@ -29,6 +29,8 @@
           <%= link_to user_profile_path(@user, @profile), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de que deseas eliminar el perfil?' } do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
+        <%= link_to 'Escanear barcode', new_user_profile_barcode_path(@user, @profile), class: 'btn btn-info me-2' %>
+
       </div>
 
     </div>
