@@ -36,6 +36,7 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
+    @profile.historicals.destroy_all
     @profile.destroy
     redirect_to user_profiles_path(@user), notice: 'Perfil eliminado correctamente.'
   end

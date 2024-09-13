@@ -2,6 +2,8 @@ class Profile < ApplicationRecord
   belongs_to :user
   before_create :assign_random_color
 
+  validates :username, presence: true
+
   validates :username, length: { maximum: 12 }
 
   private
