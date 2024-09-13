@@ -22,8 +22,10 @@ class ProductsController < ApplicationController
     @historical.save
     @historical.calculate_result
 
-    redirect_to user_profile_product_path(@user, @profile, @product), notice: "#{@historical.results}"
+    # Redirigir a la vista de historical/show
+    redirect_to user_profile_product_historical_path(@user, @profile, @product, @historical), notice: "#{@historical.results}"
   end
+
 
 
   private

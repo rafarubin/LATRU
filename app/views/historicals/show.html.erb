@@ -1,0 +1,27 @@
+<h1>Detalles del Producto</h1>
+
+<div class="product-detail">
+  <div class="product-info">
+    <p class="label"><strong>Producto:</strong></p>
+    <p class="product-name"><%= @product.name %></p>
+
+    <p class="label"><strong>Resultado:</strong></p>
+    <p class="result">
+      <% if @historical.results %>
+        Producto NO APTO para consumo
+        <span class="thumbs-down">👎</span>
+      <% else %>
+        Producto APTO para consumo
+        <span class="thumbs-up">👍</span>
+      <% end %>
+    </p>
+
+    <p class="product-attribute">AQUI VA EL CONTENIDO DEL PRODUCTO</p>
+
+    <div class="actions">
+      <%= link_to 'Escanear otro', new_user_profile_barcode_path(@user, @profile), class: "btn btn-scan" %>
+      <%= link_to 'Compartir', '#', class: "btn btn-share" %>
+      <%= link_to 'Terminar', user_profile_historicals_path(@user, @profile), class: "btn btn-finish" %>
+    </div>
+  </div>
+</div>
