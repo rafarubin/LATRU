@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_13_195713) do
     t.datetime "updated_at", null: false
     t.bigint "profile_id", null: false
     t.bigint "product_id", null: false
-    t.string "results"
+    t.boolean "results"
     t.index ["product_id"], name: "index_historicals_on_product_id"
     t.index ["profile_id"], name: "index_historicals_on_profile_id"
   end
@@ -89,6 +89,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_13_195713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.string "name"
     t.string "username"
     t.boolean "gluten"
     t.boolean "dairy"

@@ -1,0 +1,41 @@
+<h1>Historial de Escaneo</h1>
+
+<% if @historicals.any? %>
+  <div class="row">
+    <% @historicals.each do |historical| %>
+      <div class="col-12 mb-3">
+        <div class="card">
+          <div class="card-body d-flex align-items-center">
+            <!-- Placeholder de la imagen del producto -->
+            <div class="me-3">
+              <i class="fas fa-image fa-3x"></i>
+            </div>
+            <!-- Información del producto -->
+            <div>
+              <h5 class="card-title mb-1"><%= historical.product.name %></h5>
+              <p class="card-text">
+                <% if historical.results %>
+                  <span class="text-danger ms-auto">
+                    <i class="fas fa-thumbs-down"></i> PRODUCTO NO APTO PARA CONSUMO
+                  </span>
+                <% else %>
+                  <span class="text-success ms-auto">
+                    <i class="fas fa-thumbs-up"></i> PRODUCTO APTO PARA CONSUMO
+                  </span>
+                <% end %>
+              </p>
+            </div>
+            <!-- Enlace que cubre toda la tarjeta -->
+            <a href="<%= user_profile_historical_path(@user, @profile, historical) %>" class="stretched-link"></a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="alert alert-warning" role="alert">
+    No hay historiales para mostrar.
+  </div>
+<% end %>
+
+<%= link_to 'Volver al perfil', user_profile_path(@user, @profile), class: "btn btn-secondary" %>
