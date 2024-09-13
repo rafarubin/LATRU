@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
     @historical.save
     @historical.calculate_result
 
-    redirect_to user_profile_product_path(@user, @profile, @product), notice: "#{@historical.results}"
+    redirect_to user_profile_historical_path(@user, @profile, @historical)
   end
 
 
@@ -32,8 +32,4 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:barcode, photos: [])
   end
 
-
-  # def product_params
-    # params.require(:product).permit(:name, :brand, :quantity, :portiion_nbr, :portion_qty, :gluten, :dairy, :penaut, :seafood, :soy, :egg, :sesame, :sugar, :vegetarian, :vegan, :calories, :fat, :fat_trans, :carb, :protein, :sugarqty, :photo)
-  # end
 end
