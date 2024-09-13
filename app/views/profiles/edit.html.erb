@@ -1,11 +1,8 @@
-<%= form_with(model: [@user, @profile], local: true) do |form| %>
-  <h1>Edit Profile</h1>
-
-  <%= render 'form', form: form %>
-
-  <div class="actions">
-    <%= form.submit 'Update Profile' %>
+<div class="container my-4">
+  <div class="row d-flex justify-content-center">
+    <%= form_with(model: [@user, @profile], local: true) do |form| %>
+      <h1 class="text-center">Editar Perfil</h1>
+      <%= render 'form', form: form %>
+    <% end %>
   </div>
-
-  <%= link_to 'Back', user_profile_path(@user, @profile) %>
-<% end %>
+</div>
