@@ -3,13 +3,13 @@
      <div class="col-12 col-sm-10 col-md-8 col-lg-6 bg-white p-4 shadow">
       <h1>Perfiles de <%= @user.email.split('@').first %></h1>
 
-      <!-- Contenedor de perfiles con flexbox -->
+
       <div class="profile-wrapper">
         <% @profiles.each do |profile| %>
           <div class="profile-item">
             <input class="profile-selector" type="radio" id="profile_<%= profile.id %>" name="profile" value="<%= profile.id %>">
             <label for="profile_<%= profile.id %>" class="profile-label" style="background-color: <%= profile.color %>;">
-              <!-- Contenido del perfil -->
+
               <%= link_to user_profile_path(@user, profile), class: "profile-link" do %>
                 <div class="profile-content">
                   <div class="profile-name">
@@ -17,18 +17,17 @@
                   </div>
                 </div>
               <% end %>
-              <!-- Ícono de lápiz para editar perfil, dentro de cada caja -->
+
               <div class="edit-profile-icon">
                 <%= link_to edit_user_profile_path(@user, profile), class: "btn btn-sm btn-light edit-link" do %>
-                  <i class="fas fa-pencil-alt"></i>
-                <% end %>
-              </div>
+                <i class="fas fa-pencil-alt"></i>
+              <% end %>
+      </div>
             </label>
           </div>
         <% end %>
       </div>
 
-      <!-- Botón para agregar nuevo perfil -->
       <%= link_to 'Agregar un nuevo perfil', new_user_profile_path(@user), class: "btn btn-primary mt-3" %>
     </div>
   </div>
