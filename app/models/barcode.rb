@@ -3,9 +3,10 @@ class Barcode < ApplicationRecord
 
   def barcode_scan
     # version = "1/development"
+    version = Rails.env.development? ? "1/development" : nil
     client = OpenAI::Client.new
     puts "URL DE IMAGEN EN CLD"
-    puts Cloudinary::Utils.cloudinary_url(photo.key)
+    puts Cloudinary::Utils.cloudinary_url(photo.key, version: version)
     puts "URL DE IMAGEN EN CLD"
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o",
@@ -16,7 +17,7 @@ class Barcode < ApplicationRecord
       {
      "type": "image_url",
       "image_url": {
-      "url": Cloudinary::Utils.cloudinary_url(photo.key),
+      "url": Cloudinary::Utils.cloudinary_url(photo.key, version: version),
       }}
       ]
       }]
