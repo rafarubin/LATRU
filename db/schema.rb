@@ -100,7 +100,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_13_162549) do
     t.boolean "sugar"
     t.boolean "vegetarian"
     t.boolean "vegan"
-    t.string "color"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

@@ -6,7 +6,7 @@
         <% @profiles.each do |profile| %>
           <div class="profile-item mt-4">
             <input class="profile-selector" type="radio" id="profile_<%= profile.id %>" name="profile" value="<%= profile.id %>">
-            <label for="profile_<%= profile.id %>" class="profile-label" style="background-color: <%= profile.color %>;">
+            <label for="profile_<%= profile.id %>" class="profile-label" style="background-color: <%#= profile.color %>;">
               <%= link_to user_profile_path(@user, profile), class: "profile-link" do %>
                 <div class="profile-content">
                   <div class="profile-name">
