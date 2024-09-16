@@ -1,10 +1,11 @@
-<!-- navbar para escritorio -->
+<!-- navbar escritorio -->
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-none d-lg-flex fixed-top">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "LaTru-logo.png" %>
-    <% end %>
-
+    <div class="logo">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "LaTrue-logo-lateral.png" %>
+      <% end %>
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
@@ -12,7 +13,7 @@
 
 
           <li class="welcome me-3 <%= 'active' if current_page?(root_path) %>">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-linkh btn" %>
           </li>
 
           <li class="nav-item dropdown">
@@ -23,10 +24,6 @@
               </div>
             </a>
 
-
-            <%# <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> %>
-              <%# <%= image_tag "profile.jpg", class: "avatar", alt: "dropdown menu" %>
-            <%# </a> %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Mis Perfiles", user_profiles_path(current_user), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
@@ -40,12 +37,11 @@
 </div>
 
 
-<!-- navbar para celular -->
+<%# navbar celular %>
 <% if user_signed_in? %>
   <div class="navbar navbar-expand-sm navbar-light d-lg-none fixed-bottom">
     <div class="container-fluid">
       <div class="d-flex justify-content-between align-items-center w-100">
-        <!-- Profile Dropup -->
         <ul class="nav-item dropup">
           <a href="#" class="avatar" id="navbarDropdownMobile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="avatar-initials mt-2">
@@ -59,9 +55,8 @@
         </ul>
 
 
-        <!-- Iconos celular -->
+
         <div class="d-flex justify-content-around align-items-center w-100">
-          <!-- Icono de Cámara-->
           <div class="nav-item text-center">
             <%= link_to new_user_profile_barcode_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link" do %>
               <i class="fas fa-camera" style="font-size: 2.5rem;"></i>
@@ -69,10 +64,9 @@
             <% end %>
           </div>
 
-          <!-- Icono de Historial -->
           <div class="nav-item text-center">
             <%= link_to user_profile_historicals_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link" do %>
-              <i class="fas fa-history" style="font-size: 2.5rem;"></i>
+              <i class="fa-solid fa-clipboard-list" style="font-size: 2.5rem;"></i>
               <p class="small mb-0">Historial</p>
             <% end %>
           </div>
