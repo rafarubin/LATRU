@@ -8,7 +8,7 @@ class Product < ApplicationRecord
 
   def set_product_attributes
     Rails.cache.fetch("#{cache_key_with_version}/content") do
-      version = "1/development"
+      version = Rails.env.development? ? "1/development" : nil
 
       messages = [
         { "type": "text", "text": "Necesito que analices ambas imagenes y me devuelvas únicamente un json con los siguientes keys. En primer lugar, extrae de la imagen el nombre, marca y cantidad_de_porciones y porciones_por_empaque y colócalos en su respectiva key. Luego, los keys que empiecen con 'apto' con verdadero si el producto es apto para consumo según el criterio o falso si no es apto para el consumo. Además, quiero los demás keys los devuelvas su cantidad nutricional correspondiente.
@@ -83,4 +83,5 @@ class Product < ApplicationRecord
       )
     end
   end
+
 end
