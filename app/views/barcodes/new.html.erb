@@ -1,8 +1,7 @@
-<h1>Producto Consultado - Codigo de Barras</h1>
 
 <div class = "container mt-5 text-justify product-background" style="max-width: 70%;">
   <div class="text-overlay">
-    <h1><strong>Nueva Consulta de Producto</strong></h1>
+    <h1 class="product-title mb-4 fw-bold"><strong>Nueva Consulta de Producto</strong></h1>
     <div>
       <h2>Instrucciones: </h2>
       <div>
@@ -12,8 +11,11 @@
     </div>
     <div>
       <%= simple_form_for [@user, @profile, @barcode] do |f| %>
-        <%= f.input :photo, as: :file, label: "Foto delantera" %>
-        <%= f.submit "Escanear", class: "btn btn-primary fs-5" %>
+        <div class="custom-file">
+          <%= f.input :photo, as: :file,  input_html: { multiple: true, class: "custom-file-input", id: "file-input", onchange: "this.form.submit();", style: "display: none;"}, label: false  %>
+          <%# f.submit "Escanear", class: "custom-file-btn" %>
+          <label for="file-input" class="custom-file-btn">Escanear</label>
+        </div>
       <% end %>
     </div>
   </div>
