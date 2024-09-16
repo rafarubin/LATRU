@@ -2,7 +2,7 @@ class Barcode < ApplicationRecord
   has_one_attached :photo
 
   def barcode_scan
-    version = "1/development"
+    version = "1/production"
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o",
