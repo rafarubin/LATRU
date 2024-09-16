@@ -2,16 +2,22 @@
 
 <div class = "container mt-5 text-justify product-background" style="max-width: 70%;">
   <div class="text-overlay">
-    <h1><strong>Consulta de producto</strong></h1>
+    <h1><strong>Nueva Consulta de Producto</strong></h1>
+    <div>
+      <h2>Instrucciones: </h2>
+      <div>
+        <p> <strong>Toma una foto al código de barras del alimnento que deseas verificar como apto para tu consumo</strong>
+      </div>
+      </p>
+    </div>
     <div>
       <%= simple_form_for [@user, @profile, @barcode] do |f| %>
         <%= f.input :photo, as: :file, label: "Foto delantera" %>
-        <%#= f.association :user_id, label: "Usuario" %>
-        <%= f.submit "Nuevo prod", class: "btn btn-primary fs-5" %>
+        <%= f.submit "Escanear", class: "btn btn-primary fs-5" %>
       <% end %>
     </div>
   </div>
   <div>
-    <%= link_to "Volver a la lista de historicos" %>
+    <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile) %>
   </div>
 </div>

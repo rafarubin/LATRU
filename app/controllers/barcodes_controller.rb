@@ -32,7 +32,7 @@ class BarcodesController < ApplicationController
         @historical = Historical.new(product_id: @search, profile_id: @profile.id)
         @historical.save
         @historical.calculate_result
-        redirect_to user_profile_barcode_path(@user, @profile, @barcode), notice: "#{@historical.results}"
+        redirect_to user_profile_historical_path(@user, @profile, @historical), notice: "#{@historical.results}"
       else
         # es nuevo, lo creo
         # envio de param1 con el valor del barcode escaneado
