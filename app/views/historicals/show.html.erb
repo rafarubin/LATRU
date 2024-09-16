@@ -1,0 +1,28 @@
+<h1 class="text-center my-4">Detalles del Producto</h1>
+
+<div class="card mx-auto shadow-sm" style="width: 24rem;">
+  <div class="card-body">
+    <h5 class="card-title text-muted"><strong>Producto:</strong></h5>
+    <p class="card-text font-weight-bold text-success"><%= @product.name %></p>
+
+    <h5 class="card-title text-muted"><strong>Resultado:</strong></h5>
+    <p class="card-text result font-weight-bold text-center">
+      <% if @historical.results %>
+        <span class="text-danger">Producto NO APTO para consumo</span>
+        <span class="thumbs-down display-4">👎</span>
+      <% else %>
+        <span class="text-success">Producto APTO para consumo</span>
+        <span class="thumbs-up display-4">👍</span>
+      <% end %>
+    </p>
+
+    <h5 class="card-title text-muted"><strong>Información del Producto:</strong></h5>
+    <p class="card-text product-attribute">Contiene gluten</p>
+
+    <div class="d-flex justify-content-between mt-4">
+      <%= link_to 'Escanear otro', new_user_profile_barcode_path(@user, @profile), class: "btn btn-outline-primary btn-block" %>
+      <%= link_to 'Compartir', '#', class: "btn btn-outline-success btn-block mx-2" %>
+      <%= link_to 'Terminar', user_profile_historicals_path(@user, @profile), class: "btn btn-outline-danger btn-block" %>
+    </div>
+  </div>
+</div>

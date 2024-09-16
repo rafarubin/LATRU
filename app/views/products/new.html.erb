@@ -1,5 +1,23 @@
-<%= simple_form_for [@user, @profile, @product] do |f| %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.input :barcode, :as => :hidden, input_html: { value: params[:param1] } %>
-  <%= f.submit %>
-<% end %>
+<div class="container mt-4">
+  <h1 class="product-title mb-4 fw-bold">Instrucciones para escaneo</h1>
+  <%= image_tag "products/supermarket.png", alt: "Girl scanning supermarket products", width: 200, class: "centered-img mb-5"  %>
+  <p class="mb-5"> 1. Toca el botón  de "Escanear" para abrir la cámara. <br>
+      <br>
+      2. Concede Permiso: Si se te solicita, permite que
+      la aplicación acceda a tu cámara. <br>
+      <br>
+      3. Captura frontal: Toma una foto de la parte delantera del producto, asegúrate que la foto sea nítida. <br>
+      <br>
+      4. Captura trasera: Toma una foto de la parte trasera del producto, asegurándote que se vea claramente la tabla nutricional y relación de ingredientes. <br>
+      <br>
+      5. ¡Listo! Espera unos segundos para ver tus resultados.
+
+      </p>
+    <%= simple_form_for [@user, @profile, @product] do |f| %>
+      <div class="custom-file">
+        <%= f.input :photos, as: :file, input_html: { multiple: true, class: "custom-file-input", id: "file-input", onchange: "this.form.submit();", style: "display: none;"}, label: false  %>
+        <%= f.input :barcode, :as => :hidden, input_html: { value: params[:param1] } %>
+        <label for="file-input" class="custom-file-btn">Escanear</label>
+      </div>
+    <% end %>
+</div>

@@ -13,18 +13,23 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    return unless @product.save
-    return unless @product.set_product_attributes
-
     @user = User.find(params[:user_id])
     @profile = Profile.find(params[:profile_id])
-    @historical = Historical.new(product_id: @product.id, profile_id: @profile.id)
-    @historical.save
-    @historical.calculate_result
+    if params[:product][:photos].present? && params[:product][:photos].count == 3
+      if @product.save
+        return unless @product.set_product_attributes
 
-    redirect_to user_profile_product_path(@user, @profile, @product), notice: "#{@historical.results}"
+        @historical = Historical.new(product_id: @product.id, profile_id: @profile.id)
+        @historical.save
+        @historical.calculate_result
+        redirect_to user_profile_historical_path(@user, @profile, @historical)
+      else
+        render :new, status: :unprocessable_entity, notice: "Debes tomar o adjuntar 2 fotos del producto"
+      end
+    else
+      render :new, status: :unprocessable_entity, notice: "Debes tomar o adjuntar 2 fotos del producto"
+    end
   end
-
 
   private
 
@@ -32,8 +37,4 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:barcode, photos: [])
   end
 
-
-  # def product_params
-    # params.require(:product).permit(:name, :brand, :quantity, :portiion_nbr, :portion_qty, :gluten, :dairy, :penaut, :seafood, :soy, :egg, :sesame, :sugar, :vegetarian, :vegan, :calories, :fat, :fat_trans, :carb, :protein, :sugarqty, :photo)
-  # end
 end
