@@ -2,24 +2,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-none d-lg-flex fixed-top">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
+      <%= image_tag "LaTru-logo.png" %>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <p class="welcome btn-disabled me-3">Bienvenid@ <%= current_user.email.split('@').first %>!</p>
 
-          <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+          <li class="welcome me-3 <%= 'active' if current_page?(root_path) %>">
             <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-
-          <li class="nav-item <%= 'active' if current_page?(user_profiles_path(current_user)) %>">
-            <%= link_to "Mis Perfiles", user_profiles_path(current_user), class: "nav-link" %>
           </li>
 
           <li class="nav-item dropdown">
@@ -32,62 +24,48 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
         <% end %>
       </ul>
     </div>
   </div>
 </div>
 
+
 <!-- navbar para celular -->
-<div class="navbar navbar-expand-sm navbar-light d-lg-none fixed-bottom">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContentMobile" aria-controls="navbarSupportedContentMobile" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContentMobile">
-      <% if user_signed_in? %>
-        <!-- Menú desplegable de perfil  -->
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item dropup dropdown-slide-up">
-            <a href="#" class="avatar" id="navbarDropdownMobile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag "profile.jpg", class: "avatar", alt: "dropdown menu" %>
-            </a>
-            <div class="dropdown-menu dropdown-slide-in" aria-labelledby="navbarDropdownMobile">
-              <%= link_to "Mis Perfiles", user_profiles_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
-            </div>
-          </li>
+<% if user_signed_in? %>
+  <div class="navbar navbar-expand-sm navbar-light d-lg-none fixed-bottom">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <!-- Profile Dropdown -->
+        <ul class="nav-item dropup">
+          <a href="#" class="avatar" id="navbarDropdownMobile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "profile.jpg", class: "avatar", alt: "dropdown menu" %>
+          </a>
+          <div class="dropdown-menu dropdown-slide-up" aria-labelledby="navbarDropdownMobile">
+            <%= link_to "Mis Perfiles", user_profiles_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+          </div>
         </ul>
-      <% else %>
-        <ul class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </ul>
-      <% end %>
-    </div>
 
-    <!-- Iconos celuar -->
-    <div class="navbar-nav w-100 d-flex d-row justify-content-around align-items-center">
-      <% if user_signed_in? %>
-        <!-- Icono de Cámara (Escáner) -->
-        <div class="nav-item camera-icon d-flex justify-content-center">
-          <%= link_to new_user_profile_barcode_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link text-center" do %>
-            <i class="fas fa-camera" style="font-size: 2rem;"></i>
-            <p class="small mb-0">Escáner</p>
-          <% end %>
-        </div>
+        <!-- Iconos celular -->
+        <div class="d-flex justify-content-around align-items-center w-100">
+          <!-- Icono de Cámara-->
+          <div class="nav-item text-center">
+            <%= link_to new_user_profile_barcode_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link" do %>
+              <i class="fas fa-camera" style="font-size: 2.5rem;"></i>
+              <p class="small mb-0">Escáner</p>
+            <% end %>
+          </div>
 
-        <!-- Icono de Historial -->
-        <div class="nav-item">
-          <%= link_to user_profile_historicals_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link text-center" do %>
-            <i class="fas fa-history" style="font-size: 2rem;"></i>
-            <p class="small mb-0">Historial</p>
-          <% end %>
+          <!-- Icono de Historial -->
+          <div class="nav-item text-center">
+            <%= link_to user_profile_historicals_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link" do %>
+              <i class="fas fa-history" style="font-size: 2.5rem;"></i>
+              <p class="small mb-0">Historial</p>
+            <% end %>
+          </div>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

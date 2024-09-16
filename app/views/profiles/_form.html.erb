@@ -54,11 +54,14 @@
 
         <div class="actions">
           <% if @profile.new_record? %>
-            <%= form.submit 'Crear Perfil', class: "btn btn-primary btn-sm" %>
-            <%= link_to 'Mis Perfiles', user_profiles_path(@user), class: "btn btn-outline-secondary" %>
+            <%= form.submit 'Crear Perfil', class: "btn btn-primary btn-sm mt-4" %>
+            <%# <%= link_to 'Mis Perfiles', user_profiles_path(@user), class: "btn btn-outline-secondary" %>
           <% else %>
-            <%= form.submit 'Guardar y volver', class: 'btn btn-primary' %>
-            <%= link_to 'Ir al perfil', user_profile_path(@user, @profile), class: 'btn btn-outline-secondary' %>
+            <%= form.submit 'Guardar y volver', class: 'btn btn-primary px-4 py-2 my-4' %>
+
+
+
+            <%# <%= link_to 'Ir al perfil', user_profile_path(@user, @profile), class: 'btn btn-outline-secondary' %>
           <% end %>
         </div>
       <% end %>
