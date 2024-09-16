@@ -10,6 +10,6 @@ class Profile < ApplicationRecord
 
   def assign_random_color
   colors = ['#74D3AE', '#98b28d', '#A6C48A', '#F6E7CB', '#DD9787', '#62DDF5', '7FAFAC']
-    self.color = colors.sample
+    color = colors.sample
   end
 end
