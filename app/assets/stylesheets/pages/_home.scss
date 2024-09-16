@@ -1,1 +1,132 @@
-// Specific CSS for your home-page
+.home-logo{
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-title{
+  color: #678D58;
+}
+
+body{
+  background-color: #FFF8EC;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.video-desktop {
+  display: none;
+}
+
+.overlay-content {
+  position: relative;
+  z-index: 1;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+.white-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 0;
+}
+
+.custom-home-btn {
+  background-color: #74D3AE;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  transition: background-color 0.3s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  width: 150px;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+@media (min-width: 769px) {
+  .home-logo{
+    width: 300px;
+    height: 300px;
+  }
+
+  .home-banner{
+    width: 100%;
+  }
+
+  .video-mobile {
+    display: none;
+  }
+
+  .video-desktop {
+    display: block;
+  }
+
+  .custom-home-btn {
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    width: 200px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-logo{
+    max-width: 100%;
+  }
+
+  .video-desktop {
+    display: none;
+  }
+
+  .video-mobile {
+    display: block;
+  }
+
+  .custom-home-btn {
+    display: flex;
+    background-color: #74D3AE;
+    width: 150px;
+    height: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+
+}

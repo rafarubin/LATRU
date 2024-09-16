@@ -1,6 +1,28 @@
-<div class="card-footer text-center">
+<div class="home-banner">
+  <div class="video-container">
+    <div class="video-background">
+      <%= video_tag("/videos/home/compra-horizontal.mp4", autoplay: true, muted: true, loop: true, playsinline: true, class: "video-desktop") %>
+      <%= video_tag("/videos/home/compra-vertical.mp4", autoplay: true, muted: true, loop: true, playsinline: true, class: "video-mobile") %>
+    </div>
+      <div class="white-overlay"></div>
 
-  <h1>BIENVENID@S A LATRU</h1>
-  <%= image_tag 'logo.png', alt: 'Logo de LATRU', class: 'home-logo' %>
+    <div class="overlay-content">
+      <h1 class="home-title mt-3">Bienvenid@ a </h1>
+      <%= image_tag 'LaTru-logo.png', alt: 'Logo de LATRU', class: 'home-logo' %>
+      <p>Con nosotros, <strong>saber qué producto comprar es más fácil 🛒</strong>.</p>
+      <p>Es así de <strong>simple</strong>: <br>
+      <br>
+       1. <strong>Crea un perfil</strong> 👤 y configura tus preferencias alimenticias. <br>
+       <br>
+       2. <strong>Escanea</strong> 📱 el producto que quieras analizar. <br>
+       <br>
+       3. <strong>¡Listo!</strong> Nuestra App <em>potenciada con IA</em> 🧠te hará una recomendación. </p>
 
+      <% if user_signed_in? %>
+        <%= link_to 'Elegir perfil', user_profiles_path(current_user), class: "custom-home-btn mt-5" %>
+      <% else %>
+       <%= link_to 'Iniciar sesión', new_user_session_path, class: "custom-home-btn mt-5" %>
+      <% end %>
+    </div>
+  </div>
 </div>
