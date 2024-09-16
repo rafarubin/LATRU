@@ -1,5 +1,3 @@
-<h1>Producto Consultado - Codigo de Barras</h1>
-
 <div class = "container mt-5 text-justify product-background" style="max-width: 70%;">
   <div class="text-overlay">
     <h1><strong>Nueva Consulta de Producto</strong></h1>
@@ -12,12 +10,12 @@
     </div>
     <div>
       <%= simple_form_for [@user, @profile, @barcode] do |f| %>
-        <%= f.input :photo, as: :file, label: "Foto delantera" %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit "Escanear", class: "btn btn-primary fs-5" %>
       <% end %>
     </div>
   </div>
   <div>
-    <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile) %>
+    <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile), class: "btn btn-primary mt-3" %>
   </div>
 </div>
