@@ -207,15 +207,12 @@
 
 .navbar {
   background-color: #49c496;
-  
+
 }
 
 .navbar-brand{
   transform: scale(1.5);
 }
-
-////////
-///
 .navbar-nav {
   display: flex;
   flex-direction: row;
@@ -292,17 +289,58 @@ input.form-control {
   font-size: 16px;
 }
 
-
-.btn-add-profile{
-  transform: scale(3);
+.btn-add-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background-color: #ffffff;
   color: #49c496;
+  border-radius: 50%;
+  font-size: 28px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .etrash {
-  transform: scale(2.5);
-  padding: 1px;
-
-  // margin-top: auto;
+  transform: scale(2);
+  padding: 25px;
+  position: absolute;
+  bottom: 5vh;
+  left: -80lvw;
+  z-index: 1;
 }
 
-.eprofile {transform: scale(2);}
+.eprofile {transform: scale(1.5);}
+
+.avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  border: none;
+  box-shadow: none;
+}
+
+a.avatar {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.dropup .dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  transform: translateY(-10px);
+}
