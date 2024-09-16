@@ -31,7 +31,6 @@
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
             </div>
           </li>
-
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -43,52 +42,48 @@
 </div>
 
 <!-- navbar para celular -->
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-lg-none fixed-bottom">
+<div class="navbar navbar-expand-sm navbar-light d-lg-none fixed-bottom">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
-    <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContentMobile" aria-controls="navbarSupportedContentMobile" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContentMobile">
       <% if user_signed_in? %>
-        <!-- Menú desplegable de perfil -->
+        <!-- Menú desplegable de perfil  -->
         <ul class="navbar-nav me-auto">
-          <li class="nav-item dropdown">
+          <li class="nav-item dropup dropdown-slide-up">
             <a href="#" class="avatar" id="navbarDropdownMobile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "profile.jpg", class: "avatar", alt: "dropdown menu" %>
             </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMobile">
+            <div class="dropdown-menu dropdown-slide-in" aria-labelledby="navbarDropdownMobile">
               <%= link_to "Mis Perfiles", user_profiles_path(current_user), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
             </div>
           </li>
         </ul>
       <% else %>
-        <li class="nav-item">
+        <ul class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+        </ul>
       <% end %>
     </div>
 
-    <!-- Iconos de navegación para pantallas pequeñas -->
-    <div class="navbar-nav flex-row justify-content-around">
+    <!-- Iconos celuar -->
+    <div class="navbar-nav w-100 d-flex d-row justify-content-around align-items-center">
       <% if user_signed_in? %>
         <!-- Icono de Cámara (Escáner) -->
-        <div class="nav-item">
+        <div class="nav-item camera-icon d-flex justify-content-center">
           <%= link_to new_user_profile_barcode_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link text-center" do %>
-            <i class="fas fa-camera" style="font-size: 1.5rem;"></i> <!-- Icono de Font Awesome para Cámara -->
+            <i class="fas fa-camera" style="font-size: 2rem;"></i>
             <p class="small mb-0">Escáner</p>
           <% end %>
         </div>
 
         <!-- Icono de Historial -->
         <div class="nav-item">
-          <%= link_to user_profile_historicals_path, class: "nav-link text-center" do %>
-            <i class="fas fa-history" style="font-size: 1.5rem;"></i> <!-- Icono de Font Awesome para Historial -->
+          <%= link_to user_profile_historicals_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link text-center" do %>
+            <i class="fas fa-history" style="font-size: 2rem;"></i>
             <p class="small mb-0">Historial</p>
           <% end %>
         </div>

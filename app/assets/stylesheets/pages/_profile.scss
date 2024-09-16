@@ -198,8 +198,8 @@
 }
 
 .btn-disabled {
-  background-color: #ffffff;
-  border: 1px solid #ffffff;
+  background-color: #49c496;
+  border: 1px solid #49c496;
   color: #000000;
   padding: 0.375rem 0.75rem;
   border-radius: 0.25rem;
@@ -208,3 +208,36 @@
   text-align: center;
 }
 
+.navbar {
+  background-color: #49c496;
+}
+
+////////
+///
+.navbar-nav {
+  display: flex;
+  flex-direction: row; /* Asegura que los íconos estén en una fila */
+  justify-content: space-between; /* Distribuye los íconos equitativamente */
+  width: 100%; /* Hace que el contenedor ocupe todo el ancho */
+}
+
+.nav-item {
+  flex: 1; /* Permite que cada ítem ocupe el mismo espacio */
+  text-align: center; /* Centra los íconos y textos */
+}
+
+.nav-link {
+  padding: 0; /* Remueve el padding para mejor alineación */
+}
+
+.offcanvas {
+  transition: transform 0.3s ease-in-out;
+}
+
+.offcanvas-start {
+  transform: translateX(-100%);
+}
+
+.offcanvas.show {
+  transform: translateX(0);
+}
