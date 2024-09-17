@@ -58,7 +58,4 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:username, :gluten, :dairy, :peanut, :seafood, :soy, :egg, :sesame, :sugar, :vegetarian, :vegan)
   end
 
-  def assign_random_color
-    self.color = COLORS.sample
-  end
 end

@@ -1,5 +1,5 @@
 <!-- navbar escritorio -->
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-none d-lg-flex fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-none d-lg-flex sticky-top">
   <div class="container-fluid">
     <div class="logo">
       <%= link_to root_path, class: "navbar-brand" do %>
@@ -57,12 +57,14 @@
 
 
         <div class="d-flex justify-content-around align-items-center w-100">
-          <div class="nav-item text-center">
-            <%= link_to new_user_profile_barcode_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link" do %>
-              <i class="fas fa-camera" style="font-size: 2.5rem;"></i>
-              <p class="small mb-0">Escáner</p>
-            <% end %>
-          </div>
+           <div class="nav-item text-center">
+              <% if current_user && current_user.profiles.any? %>
+                <%= link_to new_user_profile_barcode_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link" do %>
+                  <i class="fas fa-camera" style="font-size: 2.5rem;"></i>
+                  <p class="small mb-0">Escáner</p>
+                <% end %>
+              <% end %>
+            </div>
 
           <div class="nav-item text-center">
             <%= link_to user_profile_historicals_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link" do %>
