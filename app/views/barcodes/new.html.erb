@@ -15,10 +15,6 @@
       <%= simple_form_for [@user, @profile, @barcode],
                                                 html: {
                                                   id: "photo-form",
-                                                  data: {
-                                                    controller: "animation",
-                                                    action: "submit->animation#submit"
-                                                  }
                                                   } do |f| %>
         <div class="custom-file">
           <%= f.input :photo, as: :file,  input_html: {
@@ -30,7 +26,7 @@
         </div>
       <% end %>
     </div>
-    <div id="loader" data-animation-target="loader" class="loader" style="display: none;" ></div>
+    <div id="loader" class="loader" style="display: none;" ></div>
   </div>
   <div>
     <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile), class: "btn btn-primary mt-3" %>

@@ -5,5 +5,3 @@ import "@popperjs/core"
 import "bootstrap"
 
 
-import AnimationController from './controllers/animation_controller.js'
-Stimulus.register('animation', AnimationController)
