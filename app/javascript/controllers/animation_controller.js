@@ -9,10 +9,8 @@ export default class extends Controller {
   static targets = ["loader"]
 
   submit() {
-    this.showLoader()
+    // Mostrar el loader cuando se envía el formulario
+    this.loaderTarget.style.display = "block";
   }
 
-  showLoader() {
-    this.loaderTarget.style.display = "block"
-  }
   }
