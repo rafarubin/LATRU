@@ -17,7 +17,15 @@
     </p>
 
     <h5 class="card-title text-muted"><strong>Información del Producto:</strong></h5>
-    <p class="card-text product-attribute">Contiene gluten</p>
+    <p class="card-text product-attribute">
+      <% if @attributes_to_display.any? %>
+        <% @attributes_to_display.each do |attribute| %>
+          <%= attribute.capitalize.gsub('_', ' ') %><br>
+        <% end %>
+      <% else %>
+        No hay atributos relevantes.
+      <% end %>
+    </p>
 
     <div class="d-flex justify-content-between mt-4">
       <%= link_to 'Escanear otro', new_user_profile_barcode_path(@user, @profile), class: "btn btn-outline-primary btn-block" %>
