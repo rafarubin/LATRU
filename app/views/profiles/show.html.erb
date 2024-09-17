@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row d-flex justify-content-center align-items-center min-vh-100">
-    <div class="col-12 col-sm-8 col-md-6 col-sm-10 col-md-8 col-lg-6 bg-white p-4 shadow">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-12 col-10 bg-white p-4 shadow">
 
       <h1><%= @profile.username %>
         <%= link_to edit_user_profile_path(@user, @profile), class: 'ms-5' do %>
@@ -31,7 +31,7 @@
           <%= link_to 'Escanear producto', new_user_profile_barcode_path(@user, @profile), class: 'btn btn-info btn-lg rounded-pill px-5 py-3', style: 'padding: 50px;' %>
         </div>
       </div>
-      
+
       <div class="container position-relative mt-5">
         <div class="position-absolute bottom-0 start-0 mb-3 ms-3 etrash mt-4">
           <%= link_to user_profile_path(@user, @profile), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de que deseas eliminar el perfil?' } do %>
