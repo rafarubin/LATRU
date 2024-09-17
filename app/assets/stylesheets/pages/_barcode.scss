@@ -11,3 +11,14 @@
 @keyframes l2 {
     100% {background-size:110%}
 }
+
+.image-container {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;     /* Centrado vertical */
+}
+
+.img-barcode {
+  width: 180px;
+  height: auto;
+}

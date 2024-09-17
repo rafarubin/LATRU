@@ -8,6 +8,9 @@
         <p> <strong>Toma una foto al código de barras del alimnento que deseas verificar como apto para tu consumo</strong>
       </div>
       </p>
+      <div class="image-container">
+        <%= image_tag "scanner.png", alt: "scanner", class: "img-barcode" %>
+      </div>
     </div>
     <div>
       <%= simple_form_for [@user, @profile, @barcode],
