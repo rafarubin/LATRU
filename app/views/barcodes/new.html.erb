@@ -7,18 +7,38 @@
         <p> <strong>Toma una foto al código de barras del alimnento que deseas verificar como apto para tu consumo</strong>
       </div>
       </p>
+      <div class="image-container">
+        <%= image_tag "scanner.png", alt: "scanner", class: "img-barcode" %>
+      </div>
     </div>
     <div>
-      <%= simple_form_for [@user, @profile, @barcode] do |f| %>
+      <%= simple_form_for [@user, @profile, @barcode],
+                                                html: {
+                                                  id: "photo-form",
+                                                  } do |f| %>
         <div class="custom-file">
-          <%= f.input :photo, as: :file,  input_html: { class: "custom-file-input", id: "file-input", onchange: "this.form.submit();", style: "display: none;"}, label: false  %>
-          <%# f.submit "Escanear", class: "custom-file-btn" %>
+          <%= f.input :photo, as: :file,  input_html: {
+                                                    class: "custom-file-input",
+                                                    id: "file-input",
+                                                    onchange: "showLoaderAndSubmit();",
+                                                    style: "display: none;"}, label: false  %>
           <label for="file-input" class="custom-file-btn">Escanear</label>
         </div>
       <% end %>
     </div>
+    <div id="loader" class="loader" style="display: none;" ></div>
   </div>
   <div>
     <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile), class: "btn btn-primary mt-3" %>
   </div>
 </div>
+
+<script>
+  function showLoaderAndSubmit() {
+    // Mostrar el loader
+    document.getElementById('loader').style.display = 'block';
+
+    // Enviar el formulario
+    document.getElementById('photo-form').submit();
+  }
+</script>
