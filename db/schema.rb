@@ -89,6 +89,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_13_195713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.string "name"
     t.string "username"
     t.boolean "gluten"
     t.boolean "dairy"

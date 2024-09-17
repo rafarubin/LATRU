@@ -16,6 +16,11 @@
       <% end %>
     </p>
 
+    <h5 class="card-title text-muted"><strong>Registrado hace:</strong></h5>
+    <p class="card-text">
+      <%= time_ago_in_words(@historical.created_at) %>
+    </p>
+
     <h5 class="card-title text-muted"><strong>Información del Producto:</strong></h5>
     <p class="card-text product-attribute">
       <% if @attributes_to_display.any? %>
@@ -30,7 +35,7 @@
     <div class="d-flex justify-content-between mt-4">
       <%= link_to 'Escanear otro', new_user_profile_barcode_path(@user, @profile), class: "btn btn-outline-primary btn-block" %>
       <%= link_to 'Compartir', '#', class: "btn btn-outline-success btn-block mx-2" %>
-      <%= link_to 'Terminar', user_profile_historicals_path(@user, @profile), class: "btn btn-outline-danger btn-block" %>
+      <%= link_to 'Historial', user_profile_historicals_path(@user, @profile), class: "btn btn-outline-danger btn-block" %>
     </div>
   </div>
 </div>
