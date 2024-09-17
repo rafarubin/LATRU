@@ -6,20 +6,10 @@
       2. Concede Permiso: Si se te solicita, permite que
       la aplicación acceda a tu cámara. <br>
       <br>
-      3. Captura frontal: Toma una foto de la parte delantera del producto, asegúrate que la foto sea nítida. <br>
+      3. Captura frontal: Toma una foto de la parte delantera del producto, asegúrate que la foto sea nítida y se puedan visualizar el nombre del producto, la marca y el contenido neto. <strong>Mientras más información captures, será mejor 😎</strong>. <br>
       <br>
-      4. Captura trasera: Toma una foto de la parte trasera del producto, asegurándote que se vea claramente la tabla nutricional y relación de ingredientes. <br>
-      <br>
-      5. ¡Listo! Espera unos segundos para ver tus resultados.
+      4. Espera unos segundos y te redirigiremos a la toma de la foto trasera.
 
       </p>
     <%= render 'form1', user: @user, profile: @profile, product: @product %>
 </div>
-
-    <%#= simple_form_for [@user, @profile, @product] do |f| %>
-      <%# <div class="custom-file"> %>
-        <%#= f.input :photos, as: :file, input_html: { multiple: true, class: "custom-file-input", id: "file-input", onchange: "this.form.submit();", style: "display: none;"}, label: false  %>
-        <%#= f.input :barcode, :as => :hidden, input_html: { value: params[:param1] } %>
-        <%# <label for="file-input" class="custom-file-btn">Escanear</label> %>
-      <%# </div> %>
-    <%# end %>
