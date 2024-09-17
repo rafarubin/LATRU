@@ -1,3 +1,5 @@
+require "open-uri"
+
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!
 
@@ -10,23 +12,6 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
-
-  # def create
-  #   @product = Product.new(product_params)
-  #   @user = User.find(params[:user_id])
-  #   @profile = Profile.find(params[:profile_id])
-  #   if params[:product][:photos].present? && params[:product][:photos].count == 2
-  #     if @product.save
-
-  #       render partial: 'form2'
-
-  #       else
-  #         render :new, status: :unprocessable_entity, notice: "Debes tomar o adjuntar 2 fotos del producto"
-  #       end
-  #     else
-  #       render :new, status: :unprocessable_entity, notice: "Debes tomar o adjuntar 2 fotos del producto"
-  #   end
-  # end
 
   def create
     @product = Product.new(product_params)
@@ -55,47 +40,24 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @user = User.find(params[:user_id])
     @profile = Profile.find(params[:profile_id])
+
     if params[:product][:photos].present?
-      # new_photos = @product.photos
-      # new_photos << params[:product][:photos]
-      new_photos = params[:product][:photos].map do |photo|
-        Cloudinary::Uploader.upload(photo)['secure_url']
-      end
-      @product.photos += new_photos
+      uploaded_photo = Cloudinary::Uploader.upload(params[:product][:photos])['secure_url']
+      @product.photos.attach(io: URI.open(uploaded_photo), filename: params[:product][:photos].original_filename)
     else
       render :edit, status: :unprocessable_entity, notice: "Debes tomar o adjuntar 1 foto trasera del producto"
     end
-      # if @product.update(product_params)
-      if @product.save
+    if @product.save
       return unless @product.set_product_attributes
 
       @historical = Historical.new(product_id: @product.id, profile_id: @profile.id)
       @historical.save
       @historical.calculate_result
       redirect_to user_profile_historical_path(@user, @profile, @historical)
-      else
-        render :edit, status: :unprocessable_entity, notice: "Debes tomar o adjuntar 1 foto trasera del producto"
-      end
-
+    else
+      render :edit, status: :unprocessable_entity, notice: "Debes tomar o adjuntar 1 foto trasera del producto"
+    end
   end
-
-
-  # def create_second_photo
-  #   @product = Product.find(params[:id])
-  #   @user = User.find(params[:user_id])
-  #   @profile = Profile.find(params[:profile_id])
-  #   if params[:product][:photos].present? && params[:product][:photos].count == 3
-  #     return unless @product.set_product_attributes
-
-  #     @historical = Historical.new(product_id: @product.id, profile_id: @profile.id)
-  #     @historical.save
-  #     @historical.calculate_result
-  #     redirect_to user_profile_historical_path(@user, @profile, @historical)
-  #   else
-  #     render partial: "form2", status: :unprocessable_entity, notice: "Debes tomar una foto del producto"
-  #   end
-
-  # end
 
   private
 

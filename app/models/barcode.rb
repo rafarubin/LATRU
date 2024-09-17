@@ -4,6 +4,7 @@ class Barcode < ApplicationRecord
   def barcode_scan
     # version = "1/development"
     version = Rails.env.development? ? "1/development" : nil
+
     client = OpenAI::Client.new
     # puts "URL DE IMAGEN EN CLD"
     # puts Cloudinary::Utils.cloudinary_url(photo.key, version: version)
