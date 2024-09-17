@@ -4,7 +4,7 @@
       <%= simple_form_for([@user, @profile]) do |form| %>
 
         <div class="form-group">
-          <%= form.input :username, label: 'Usuario', placeholder: 'Usuario de 06 caracteres' %>
+          <%= form.input :username, label: 'Nombre', placeholder: 'Nombre de 06 caracteres' %>
         </div>
 
         <div class="form-group">
@@ -54,11 +54,9 @@
 
         <div class="actions">
           <% if @profile.new_record? %>
-            <%= form.submit 'Crear Perfil', class: "btn btn-primary btn-sm" %>
-            <%= link_to 'Mis Perfiles', user_profiles_path(@user), class: "btn btn-outline-secondary" %>
+            <%= form.submit 'Crear Perfil', class: "btn btn-primary btn-sm mt-4" %>
           <% else %>
-            <%= form.submit 'Guardar y volver', class: 'btn btn-primary' %>
-            <%= link_to 'Ir al perfil', user_profile_path(@user, @profile), class: 'btn btn-outline-secondary' %>
+            <%= form.submit 'Guardar y volver', class: 'btn btn-primary px-4 py-2 my-4' %>
           <% end %>
         </div>
       <% end %>

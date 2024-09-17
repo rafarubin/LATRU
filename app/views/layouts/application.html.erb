@@ -13,10 +13,15 @@
 </head>
 
   </head>
+  <body>
 
-  <body><%= render "shared/navbar" %>
+  <% unless current_page?(root_path) %>
+    <%= render "shared/navbar" %>
+  <% end %>
+
   <%= render "shared/flashes" %>
 
-    <%= yield %>
+  <%= yield %>
+
   </body>
 </html>

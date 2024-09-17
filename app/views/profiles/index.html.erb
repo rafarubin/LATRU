@@ -1,15 +1,12 @@
-<div class="container my-4">
-  <div class="row d-flex justify-content-center">
-     <div class="col-12 col-sm-10 col-md-8 col-lg-6 bg-white p-4 shadow">
-      <h1>Perfiles de <%= @user.email.split('@').first %></h1>
-
-
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-12 col-sm-8 col-md-6 col-sm-10 col-md-8 col-lg-6 bg-white p-4 shadow">
+      <h1>Mis perfiles: <%= @user.email.split('@').first %></h1>
       <div class="profile-wrapper">
         <% @profiles.each do |profile| %>
-          <div class="profile-item">
+          <div class="profile-item mt-4">
             <input class="profile-selector" type="radio" id="profile_<%= profile.id %>" name="profile" value="<%= profile.id %>">
-            <label for="profile_<%= profile.id %>" class="profile-label" style="background-color: <%= profile.color %>;">
-
+            <label for="profile_<%= profile.id %>" class="profile-label" style="background-color: <%#= profile.color %>;">
               <%= link_to user_profile_path(@user, profile), class: "profile-link" do %>
                 <div class="profile-content">
                   <div class="profile-name">
@@ -17,18 +14,22 @@
                   </div>
                 </div>
               <% end %>
-
               <div class="edit-profile-icon">
                 <%= link_to edit_user_profile_path(@user, profile), class: "btn btn-sm btn-light edit-link" do %>
-                <i class="fas fa-pencil-alt"></i>
-              <% end %>
-      </div>
+                  <i class="fas fa-pencil-alt"></i>
+                <% end %>
+              </div>
             </label>
           </div>
         <% end %>
       </div>
 
-      <%= link_to 'Agregar un nuevo perfil', new_user_profile_path(@user), class: "btn btn-primary mt-3" %>
+      <!-- Circular Button for Adding a New Profile -->
+      <div class="btn-add-profile text-center mt-3">
+        <%= link_to new_user_profile_path(@user), class: "btn-add-profile" do %>
+          <i class="fas fa-user-plus"></i>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -14,7 +14,7 @@ user2 = User.create!(
 # Create Profiles
 profile1 = Profile.create!(
   user: user1,
-  name: "John Doe",
+  # name: "John Doe",
   username: "johndoe123",
   gluten: false,
   dairy: true,
@@ -30,7 +30,7 @@ profile1 = Profile.create!(
 
 profile2 = Profile.create!(
   user: user2,
-  name: "Jane Smith",
+  # name: "Jane Smith",
   username: "janesmith456",
   gluten: true,
   dairy: false,
@@ -46,7 +46,7 @@ profile2 = Profile.create!(
 
 # Create Products
 product1 = Product.create!(
-  name: "Peanut Butter",
+  # name: "Peanut Butter",
   brand: "Nutty Goodness",
   quantity: 500,
   portiion_nbr: 10,
@@ -71,7 +71,7 @@ product1 = Product.create!(
 )
 
 product2 = Product.create!(
-  name: "Gluten-Free Bread",
+  # name: "Gluten-Free Bread",
   brand: "Healthy Bakes",
   quantity: 400,
   portiion_nbr: 8,
@@ -107,4 +107,3 @@ Historical.create!(
   product: product2,
   results: false
 )
-
