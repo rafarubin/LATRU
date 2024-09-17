@@ -22,3 +22,18 @@
   width: 180px;
   height: auto;
 }
+
+#loader {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;     /* Centrado vertical */
+  margin: 20px auto;     /* Centrado vertical */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrado vertical */
+  align-items: center;     /* Centrado horizontal */
+  min-height: 100vh;       /* Abarcar toda la pantalla */
+}
