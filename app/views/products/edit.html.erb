@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <h1 class="product-title mb-4 fw-bold">Instrucciones para escaneo</h1>
+  <%= image_tag "products/escaneo-edit.png", alt: "Girl scanning supermarket products", width: 200, class: "centered-img mb-5"  %>
+  <p class="mb-5"> 1. Toca el botón  de "Escanear" para abrir la cámara. <br>
+      <br>
+      2. Concede Permiso: Si se te solicita, permite que
+      la aplicación acceda a tu cámara. <br>
+      <br>
+      3. Captura frontal: Toma una foto de la parte delantera del producto, asegúrate que la foto sea nítida. <br>
+      <br>
+      4. Captura trasera: Toma una foto de la parte trasera del producto, asegurándote que se vea claramente la tabla nutricional y relación de ingredientes. <br>
+      <br>
+      5. ¡Listo! Espera unos segundos para ver tus resultados.
+
+      </p>
+    <%= render 'form2', user: @user, profile: @profile, product: @product %>
+</div>

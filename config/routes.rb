@@ -12,7 +12,11 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :profiles do
-      resources :products
+      resources :products do
+        collection do
+          post "create_second_photo"
+        end
+      end
       resources :historicals, only: [:index, :show, :destroy]
       resources :barcodes, only: [:new, :create, :show]
     end
