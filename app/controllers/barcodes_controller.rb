@@ -16,7 +16,6 @@ class BarcodesController < ApplicationController
       if @barcode.photo.attached?
         img_key = @barcode.photo.key
         # Usar el helper de Cloudinary para generar la URL de la imagen
-        img_url = Cloudinary::Utils.cloudinary_url(img_key, version: "1/development")
       else
         render :new, status: :unprocessable_entity
       end
