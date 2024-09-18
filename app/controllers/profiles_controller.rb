@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = @user.profiles.new
+
   end
 
   def create
