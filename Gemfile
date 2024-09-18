@@ -76,7 +76,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-gem "cloudinary"
+gem "cloudinary", '~> 1.24.0'
 gem "ruby-openai"
 gem "solid_queue", "0.3.1"
 gem "pg_search"
