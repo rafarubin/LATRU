@@ -15,8 +15,10 @@
   </head>
   <body>
 
-  <% unless current_page?(root_path) %>
-    <%= render "shared/navbar" %>
+  <% if user_signed_in? %>
+    <% unless current_page?(root_path) || current_page?(user_profiles_path) || current_page?(new_user_profile_path) %>
+      <%= render "shared/navbar" %>
+    <% end %>
   <% end %>
 
   <%= render "shared/flashes" %>
