@@ -1,0 +1,23 @@
+@media (min-width: 769px) {
+
+
+.fixed-search{
+  position:fixed;
+  top:9%;
+  right:1%;
+  width:50%;
+ }
+}
+
+
+@media (max-width: 768px) {
+
+
+  .fixed-search{
+    position:fixed;
+    bottom:10%;
+    right:1%;
+    width:100%;
+   }
+
+}
