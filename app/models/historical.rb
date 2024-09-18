@@ -2,6 +2,15 @@ class Historical < ApplicationRecord
   belongs_to :profile
   belongs_to :product
 
+  include PgSearch::Model
+  pg_search_scope :search_by_product_name_and_brand,
+    associated_against: {
+      product: [ :name, :brand ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def calculate_result
     attributes = %w[gluten peanut seafood soy egg sesame sugar vegetarian vegan dairy]
 
