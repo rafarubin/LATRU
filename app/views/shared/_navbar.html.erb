@@ -59,7 +59,7 @@
         <div class="d-flex justify-content-around align-items-center w-100">
            <div class="nav-item text-center">
               <% if current_user && current_user.profiles.any? %>
-                <%= link_to new_user_profile_barcode_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link" do %>
+                <%= link_to new_user_profile_barcode_path(user_id: current_user.id, profile_id: @profile.id), class: "nav-link" do %>
                   <i class="fas fa-camera" style="font-size: 2.5rem;"></i>
                   <p class="small mb-0">Escáner</p>
                 <% end %>
@@ -67,7 +67,7 @@
             </div>
 
           <div class="nav-item text-center">
-            <%= link_to user_profile_historicals_path(user_id: current_user.id, profile_id: current_user.profiles.first.id), class: "nav-link" do %>
+            <%= link_to user_profile_historicals_path(user_id: current_user.id, profile_id: @profile.id), class: "nav-link" do %>
               <i class="fa-solid fa-clipboard-list" style="font-size: 2.5rem;"></i>
               <p class="small mb-0">Historial</p>
             <% end %>

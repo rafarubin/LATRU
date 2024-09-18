@@ -31,7 +31,7 @@
           <%= link_to 'Escanear producto', new_user_profile_barcode_path(@user, @profile), class: 'btn btn-info btn-lg rounded-pill px-5 py-3', style: 'padding: 50px;' %>
         </div>
       </div>
-      
+
       <div class="container position-relative mt-5">
         <div class="position-absolute bottom-0 start-0 mb-3 ms-3 etrash mt-4">
           <%= link_to user_profile_path(@user, @profile), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de que deseas eliminar el perfil?' } do %>

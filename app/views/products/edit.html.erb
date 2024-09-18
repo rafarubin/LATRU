@@ -1,4 +1,8 @@
-<div class="container mt-4">
+<div id= "loading" style = "margin: auto; display: none;">
+  <div id="lottie-container" style="margin: auto;"></div>
+  <h3 class= "loading-text">Estamos analizando tu producto, solo tomará unos segundos.</h3>
+</div>
+<div class="container", id= "edit-page">
   <h1 class="product-title mb-4 fw-bold">Instrucciones para escaneo</h1>
   <%= image_tag "products/escaneo-edit.png", alt: "Girl scanning supermarket products", width: 200, class: "centered-img mb-5"  %>
   <p class="mb-5"> 1. Toca el botón  de "Escanear" para abrir la cámara. <br>
@@ -13,3 +17,29 @@
       </p>
     <%= render 'form2', user: @user, profile: @profile, product: @product %>
 </div>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const container = document.getElementById('lottie-container');
+    lottie.loadAnimation({
+      container: container, // the DOM element to render the animation in
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '<%= asset_path("/animations/test.json") %>' // the path to your animation file
+    });
+  });
+  function showLoaderAndSubmit() {
+    document.getElementById("edit-page").setAttribute("hidden", "hidden");
+
+    // Mostrar el loader
+    document.getElementById('loading').style.position = 'relative';
+    document.getElementById('loading').style.display = 'block';
+
+
+    // Enviar el formulario
+    document.getElementById('edit-form').submit();
+  }
+</script>
