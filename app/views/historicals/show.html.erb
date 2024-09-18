@@ -39,8 +39,43 @@
     <!-- Buttons at the Bottom (Escanear otro, Compartir, Historial) -->
     <div class="d-flex justify-content-between mt-4">
       <%= link_to 'Escanear otro', new_user_profile_barcode_path(@user, @profile), class: "btn btn-outline-primary btn-sm" %>
-      <%= link_to 'Compartir', '#', class: "btn btn-outline-success btn-sm mx-2" %>
+      <%= link_to 'Recomendaciones', '#', class: "btn btn-outline-success btn-block mx-2", id: "recom-btn", onclick: "getRecommendations();" %>
       <%= link_to 'Historial', user_profile_historicals_path(@user, @profile), class: "btn btn-outline-danger btn-sm" %>
     </div>
   </div>
+    <div class="container mt-1 text-justify product-background align-baseline" id="recommendations" style="max-width: 85%;display: none; ">
+    <h3><strong>Recomendaciones:</strong></h3>
+    <div id="recommendations-content">
+      <p><%#= @recom %></p>
+      <br>
+      <p><strong>Opción 1:</strong> </p>
+      <ul>
+        <li><strong>Nombre: </strong><%= @recom["item_1"]["product_name"] %></li>
+        <li><strong>Marca:</strong> <%= @recom["item_1"]["brand_name"] %></li>
+        <li><strong>Detalle:</strong> <%= @recom["item_1"]["description"] %></li>
+
+      </ul>
+      <br>
+      <p><strong>Opción 2:</strong> </p>
+      <ul>
+        <li><strong>Nombre: </strong><%= @recom["item_2"]["product_name"] %></li>
+        <li><strong>Marca:</strong> <%= @recom["item_2"]["brand_name"] %></li>
+        <li><strong>Detalle:</strong> <%= @recom["item_2"]["description"] %></li>
+
+      </ul>
+    </div>
+  </div>
+
 </div>
+<script>
+  function getRecommendations() {
+    event.preventDefault();
+    var recommendationsDiv = document.getElementById('recommendations');
+
+    if (recommendationsDiv.style.display === 'none' || recommendationsDiv.style.display === '') {
+      recommendationsDiv.style.display = 'block';
+    } else {
+      recommendationsDiv.style.display = 'none';
+    }
+  }
+</script>
