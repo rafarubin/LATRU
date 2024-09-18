@@ -2,17 +2,24 @@
 
 <div class="card mx-auto shadow-sm" style="width: 24rem;">
   <div class="card-body">
-    <h5 class="card-title text-muted"><strong>Producto:</strong></h5>
-    <p class="card-text font-weight-bold text-success"><%= @product.name %></p>
+    <div class="d-flex">
+      <h5 class="card-title text-muted"><strong>Producto:</strong></h5>
+      <p class="card-text font-weight-bold "><%= @product.name %></p>
+      <div>
+        <%= cl_image_tag(@historical.product.photos[0].key, width: 100, height: 100, crop: :fill)%>
+        <%#= @historical.product.photos[0].key %>
+      </div>
+    </div>
 
     <h5 class="card-title text-muted"><strong>Resultado:</strong></h5>
-    <p class="card-text result font-weight-bold text-center">
+    <p class="card-text result font-weight-bold">
       <% if @historical.results %>
-        <span class="text-danger">Producto NO APTO para consumo</span>
-        <span class="thumbs-down display-4">👎</span>
-      <% else %>
-        <span class="text-success">Producto APTO para consumo</span>
+        <span class="text-success"><strong>Producto APTO para consumo</strong></span>
         <span class="thumbs-up display-4">👍</span>
+      <% else %>
+        <span class="text-danger"><strong>Producto NO APTO para consumo</strong></span>
+        <span class="thumbs-down display-4">👎</span>
+
       <% end %>
     </p>
 
@@ -28,7 +35,7 @@
           <%= attribute.capitalize.gsub('_', ' ') %><br>
         <% end %>
       <% else %>
-        No hay atributos relevantes.
+        No hay restricciones relevantes.
       <% end %>
     </p>
 
