@@ -49,7 +49,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_18_190515) do
   end
 
   create_table "historicals", force: :cascade do |t|
-    t.boolean "job_completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "profile_id", null: false
