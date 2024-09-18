@@ -1,65 +1,63 @@
-<div class="container my-4">
   <div class="row d-flex justify-content-center">
-    <div class="col-12 col-10 bg-white p-4 shadow">
-      <%= simple_form_for([@user, @profile]) do |form| %>
+      <div class="col-12 col-10 bg-white p-4 shadow">
+        <%= simple_form_for([@user, @profile]) do |form| %>
 
-        <div class="form-group">
-          <%= form.input :username, label: 'Nombre', placeholder: 'Nombre de 06 caracteres' %>
-        </div>
+          <div class="form-group">
+            <%= form.input :username, label: 'Nombre', placeholder: 'Nombre de 06 caracteres' %>
+          </div>
 
-        <div class="form-group">
-          <div class="checkbox-group d-flex flex-wrap">
-            <div class="tag-item">
-              <%= form.check_box :gluten, class: 'tag-selector' %>
-              <%= form.label :gluten, 'No Gluten', class: 'tag-selector-label' %>
-            </div>
-            <div class="tag-item">
-              <%= form.check_box :dairy, class: 'tag-selector' %>
-              <%= form.label :dairy, 'No Lacteos', class: 'tag-selector-label' %>
-            </div>
-            <div class="tag-item">
-              <%= form.check_box :peanut, class: 'tag-selector' %>
-              <%= form.label :peanut, 'No Nueces', class: 'tag-selector-label' %>
-            </div>
-            <div class="tag-item">
-              <%= form.check_box :seafood, class: 'tag-selector' %>
-              <%= form.label :seafood, 'No comida marina', class: 'tag-selector-label' %>
-            </div>
-            <div class="tag-item">
-              <%= form.check_box :soy, class: 'tag-selector' %>
-              <%= form.label :soy, 'No Soya', class: 'tag-selector-label' %>
-            </div>
-            <div class="tag-item">
-              <%= form.check_box :egg, class: 'tag-selector' %>
-              <%= form.label :egg, 'No huevos', class: 'tag-selector-label' %>
-            </div>
-            <div class="tag-item">
-              <%= form.check_box :sesame, class: 'tag-selector' %>
-              <%= form.label :sesame, 'No ajonjoli', class: 'tag-selector-label' %>
-            </div>
-            <div class="tag-item">
-              <%= form.check_box :sugar, class: 'tag-selector' %>
-              <%= form.label :sugar, 'No Azucar', class: 'tag-selector-label' %>
-            </div>
-            <div class="tag-item">
-              <%= form.check_box :vegetarian, class: 'tag-selector' %>
-              <%= form.label :vegetarian, 'Vegetariano', class: 'tag-selector-label' %>
-            </div>
-            <div class="tag-item">
-              <%= form.check_box :vegan, class: 'tag-selector' %>
-              <%= form.label :vegan, 'Vegano', class: 'tag-selector-label' %>
+          <div class="form-group">
+            <div class="checkbox-group d-flex flex-wrap">
+              <div class="tag-item">
+                <%= form.check_box :gluten, class: 'tag-selector' %>
+                <%= form.label :gluten, 'No Gluten', class: 'tag-selector-label' %>
+              </div>
+              <div class="tag-item">
+                <%= form.check_box :dairy, class: 'tag-selector' %>
+                <%= form.label :dairy, 'No Lacteos', class: 'tag-selector-label' %>
+              </div>
+              <div class="tag-item">
+                <%= form.check_box :peanut, class: 'tag-selector' %>
+                <%= form.label :peanut, 'No Nueces', class: 'tag-selector-label' %>
+              </div>
+              <div class="tag-item">
+                <%= form.check_box :seafood, class: 'tag-selector' %>
+                <%= form.label :seafood, 'No comida marina', class: 'tag-selector-label' %>
+              </div>
+              <div class="tag-item">
+                <%= form.check_box :soy, class: 'tag-selector' %>
+                <%= form.label :soy, 'No Soya', class: 'tag-selector-label' %>
+              </div>
+              <div class="tag-item">
+                <%= form.check_box :egg, class: 'tag-selector' %>
+                <%= form.label :egg, 'No huevos', class: 'tag-selector-label' %>
+              </div>
+              <div class="tag-item">
+                <%= form.check_box :sesame, class: 'tag-selector' %>
+                <%= form.label :sesame, 'No ajonjoli', class: 'tag-selector-label' %>
+              </div>
+              <div class="tag-item">
+                <%= form.check_box :sugar, class: 'tag-selector' %>
+                <%= form.label :sugar, 'No Azucar', class: 'tag-selector-label' %>
+              </div>
+              <div class="tag-item">
+                <%= form.check_box :vegetarian, class: 'tag-selector' %>
+                <%= form.label :vegetarian, 'Vegetariano', class: 'tag-selector-label' %>
+              </div>
+              <div class="tag-item">
+                <%= form.check_box :vegan, class: 'tag-selector' %>
+                <%= form.label :vegan, 'Vegano', class: 'tag-selector-label' %>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="actions">
-          <% if @profile.new_record? %>
-            <%= form.submit 'Crear Perfil', class: "btn btn-primary btn-sm mt-4" %>
-          <% else %>
-            <%= form.submit 'Guardar y volver', class: 'btn btn-primary px-4 py-2 my-4' %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+          <div class="actions">
+            <% if @profile.new_record? %>
+              <%= form.submit 'Crear Perfil', class: "btn btn-primary btn-sm mt-4" %>
+            <% else %>
+              <%= form.submit 'Guardar y volver', class: 'btn btn-primary px-4 py-2 my-4' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
   </div>
-</div>

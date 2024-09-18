@@ -197,10 +197,6 @@
 
 /*Login Form */
 
-.container {
-  padding: 20px;
-}
-
 .row {
   margin: 0;
 }
@@ -255,12 +251,12 @@ input.form-control {
 
 .etrash {
   transform: scale(2);
-  padding: 25px;
-  position: absolute;
-  bottom: 5vh;
+  // padding: 25px;
+  // position: absolute;
   left: -80lvw;
   z-index: 1;
+  width: 40px;
+  height: 40px;
 }
 
 .eprofile {transform: scale(1.5);}
-
