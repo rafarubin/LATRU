@@ -1,12 +1,18 @@
 .profile-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .profile-selector {
   position: absolute;
   transform: scale(0);
+}
+
+.profile-title{
+  color: #678D58;
+
 }
 
 .profile-item {
@@ -27,13 +33,18 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  border: 1px solid #EAEAEA;
-  background-color: rgb(47, 206, 108);
+  // border: 1px solid #EAEAEA;
+  // background-color: rgb(47, 206, 108);
   color: black;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   position: relative;
   border-radius: 50%;
   z-index: 1;
+}
+
+.profile-image{
+  width: 70%;
+  height: 70%;
 }
 
 .edit-profile-icon {
@@ -42,7 +53,7 @@
   right: -10px;
   z-index: 2;
   transform: scale(2);
-
+  width: 20%;
 }
 
 .edit-profile-icon .btn {
@@ -232,7 +243,7 @@ input.form-control {
   padding: 10px;
   font-size: 16px;
 }
-/////
+
 
 .btn-add-profile {
   display: flex;
@@ -260,3 +271,177 @@ input.form-control {
 }
 
 .eprofile {transform: scale(1.5);}
+
+.image-radio-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-radio-item {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.image-radio-input {
+  display: none;
+}
+
+.selectable-image {
+  border: 2px solid transparent;
+  max-width: 100px;
+  transition: border 0.3s ease;
+}
+
+.selectable-image:hover {
+  border: 2px solid;
+  max-width: 100px;
+  transition: border 0.3s ease;
+  border-color: #007bff;
+}
+
+
+.image-radio-input:checked + .image-radio-label .selectable-image {
+  background-color: #007bff;
+}
+
+.profile-button{
+    background-color: #74D3AE;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 150px;
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+
+  .container {
+    padding: 10px;
+  }
+
+  .row {
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .image-radio-group {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .image-radio-item {
+    margin: 5px auto;
+  }
+
+  .selectable-image {
+    max-width: 60px;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+  }
+
+  .selectable-image:hover {
+    border: 2px solid;
+    max-width: 60px;
+    transition: border 0.3s ease;
+    border-color: #007bff;
+  }
+
+  .image-radio-input:checked + .image-radio-label .selectable-image {
+    border-color: #007bff;
+  }
+
+  .checkbox-group {
+    gap: 0.3rem;
+    justify-content: space-around;
+  }
+
+  .tag-item {
+    margin-bottom: 10px;
+    width: 40%;
+  }
+
+  .tag-selector + label {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-wrapper {
+    justify-content: center;
+  }
+
+  .profile-item {
+    flex: 0 0 40%;
+    margin-bottom: 20px;
+  }
+
+  .profile-label {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .actions .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .btn-add-profile {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+  }
+
+  .etrash, .eprofile {
+    transform: scale(1.3);
+  }
+
+  .edit-profile-icon .btn {
+    font-size: 20px;
+  }
+
+  .badge-container {
+    justify-content: center;
+  }
+
+  .badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .profile-button{
+    display: flex;
+    background-color: #74D3AE;
+    width: 50%;
+    height: 40px;
+
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+  }
+}

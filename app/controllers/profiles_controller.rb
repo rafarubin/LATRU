@@ -56,7 +56,7 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:username, :gluten, :dairy, :peanut, :seafood, :soy, :egg, :sesame, :sugar, :vegetarian, :vegan)
+    params.require(:profile).permit(:username, :gluten, :dairy, :peanut, :seafood, :soy, :egg, :sesame, :sugar, :vegetarian, :vegan, :image)
   end
 
 end
