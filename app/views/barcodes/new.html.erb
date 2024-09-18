@@ -1,9 +1,5 @@
-<div id= "loading" style = "margin: auto; display: none;">
-  <div id="lottie-container" style="margin: auto;" ></div>
-  <h3 class= "loading-text">Estamos analizando tu producto, solo tomará unos segundos.</h3>
-</div>
 
-<div class = "container mt-5 text-justify product-background" id="new-page" style="max-width: 70%;">
+<div class = "container mt-1 text-justify product-background align-baseline" id="new-page" style="max-width: 70%;">
   <div class="text-overlay">
     <h1 class="product-title mb-4 fw-bold"><strong>Nueva Consulta de Producto</strong></h1>
     <div class="instructions">
@@ -13,7 +9,8 @@
       </div>
       </p>
       <div class="image-container">
-        <%= image_tag "scanner.png", alt: "scanner", class: "img-barcode" %>
+        <%# <%= image_tag "scanner.png", alt: "scanner", class: "img-barcode" %>
+        <div id="lottie-container" style="margin: auto;" ></div>
       </div>
     </div>
     <div class="form">
@@ -31,11 +28,14 @@
         </div>
       <% end %>
     </div>
-    <div id="loader" class="loader" style="display: none;" ></div>
   </div>
   <div>
     <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile), class: "btn btn-primary mt-3" %>
   </div>
+</div>
+<div id= "load-msg" style = "margin: auto; display: none;" class="container d-flex justify-content-center mt-5 text-justify mt-2 align-middle">
+  <h3 class= "loading-text">Estamos analizando tu producto, solo tomará unos segundos.</h3>
+  <div id="loader" class="loader" style="display: none;" ></div>
 </div>
 
 <script>
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: '<%= asset_path("/animations/test.json") %>' // the path to your animation file
+      path: '<%= asset_path("/animations/scan_barcode.json") %>' // the path to your animation file
     });
   });
   function showLoaderAndSubmit() {
@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("new-page").setAttribute("hidden", "hidden");
 
     // Mostrar el loader
-    document.getElementById('loading').style.position = 'relative';
-    document.getElementById('loading').style.display = 'block';
-
+    // document.getElementById('loading').style.position = 'relative';
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('load-msg').style.display = 'block'
 
     // Enviar el formulario
     document.getElementById('photo-form').submit();
