@@ -58,7 +58,7 @@
 
         <div class="d-flex justify-content-around align-items-center w-100 mb-12">
            <div class="nav-item text-center">
-              <% if current_user && current_user.profiles.any? %>
+              <% if current_user && params[:profile_id] != nil %>
                 <%= link_to new_user_profile_barcode_path(user_id: current_user.id, profile_id: @profile.id), class: "nav-link" do %>
                   <i class="fas fa-camera" style="font-size: 2.5rem;"></i>
                   <p class="small mb-0">Escáner</p>
