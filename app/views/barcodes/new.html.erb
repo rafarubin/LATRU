@@ -6,7 +6,7 @@
 <div class = "container mt-5 text-justify product-background" id="new-page" style="max-width: 70%;">
   <div class="text-overlay">
     <h1 class="product-title mb-4 fw-bold"><strong>Nueva Consulta de Producto</strong></h1>
-    <div>
+    <div class="instructions">
       <h2>Instrucciones: </h2>
       <div>
         <p> <strong>Toma una foto al código de barras del alimnento que deseas verificar como apto para tu consumo</strong>
@@ -16,7 +16,7 @@
         <%= image_tag "scanner.png", alt: "scanner", class: "img-barcode" %>
       </div>
     </div>
-    <div>
+    <div class="form">
       <%= simple_form_for [@user, @profile, @barcode],
                                                 html: {
                                                   id: "photo-form",
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   function showLoaderAndSubmit() {
     // document.getElementById("new-page").style.display = 'none';
-    document.getElementById("edit-page").setAttribute("hidden", "hidden");
+    document.getElementById("new-page").setAttribute("hidden", "hidden");
 
     // Mostrar el loader
     document.getElementById('loading').style.position = 'relative';
