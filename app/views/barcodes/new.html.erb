@@ -1,4 +1,9 @@
-<div class = "container mt-5 text-justify product-background" style="max-width: 70%;">
+<div id= "loading" style = "margin: auto; display: none;">
+  <div id="lottie-container" style="margin: auto;"></div>
+  <h3 class= "loading-text">Estamos analizando tu producto, solo tomará unos segundos.</h3>
+</div>
+
+<div class = "container mt-5 text-justify product-background" id="new-page" style="max-width: 70%;">
   <div class="text-overlay">
     <h1 class="product-title mb-4 fw-bold"><strong>Nueva Consulta de Producto</strong></h1>
     <div>
@@ -34,11 +39,35 @@
 </div>
 
 <script>
+  // function showLoaderAndSubmit() {
+  //   // Mostrar el loader
+  //   document.getElementById('loader').style.display = 'block';
+
+  //   // Enviar el formulario
+  //   document.getElementById('photo-form').submit();
+  // }
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const container = document.getElementById('lottie-container');
+    lottie.loadAnimation({
+      container: container, // the DOM element to render the animation in
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '<%= asset_path("/animations/scan_barcode.json") %>' // the path to your animation file
+    });
+  });
   function showLoaderAndSubmit() {
+    document.getElementById("new-page").style.display = 'none';
+
     // Mostrar el loader
-    document.getElementById('loader').style.display = 'block';
+    document.getElementById('loading').style.position = 'relative';
+    document.getElementById('loading').style.display = 'block';
+
 
     // Enviar el formulario
     document.getElementById('photo-form').submit();
   }
+
 </script>
