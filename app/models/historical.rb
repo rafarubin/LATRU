@@ -10,13 +10,15 @@ class Historical < ApplicationRecord
       profile_value = profile.send(attribute)
 
       if product_value == false && profile_value == true
-        results = "Producto no es apto para que lo consumas"
+        # "Producto no es apto para que lo consumas"
+        results = false
         self.update(results: results)
         return
       end
     end
 
-    results = "Producto sí es apto para que lo consumas"
+    # "Producto sí es apto para que lo consumas"
+    results = true
     self.update(results: results)
   end
 end
