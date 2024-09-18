@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="col-12 col-10 bg-white p-4 shadow">
-      <h1>Mis perfiles: <%= @user.email.split('@').first %></h1>
+      <h1 class="profile-title">Mis perfiles: <%= @user.email.split('@').first.capitalize() %></h1>
       <div class="profile-wrapper">
         <% @profiles.each do |profile| %>
           <div class="profile-item mt-4">
             <input class="profile-selector" type="radio" id="profile_<%= profile.id %>" name="profile" value="<%= profile.id %>">
             <label for="profile_<%= profile.id %>" class="profile-label">
               <%= link_to user_profile_path(@user, profile), class: "profile-link" do %>
+                 <%= image_tag profile.image, class:"profile-image"%>
                 <div class="profile-content">
                   <div class="profile-name">
                     <strong><%= profile.username %></strong>
