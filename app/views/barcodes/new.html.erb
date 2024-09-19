@@ -2,10 +2,10 @@
 <div class = "container mt-1 text-justify product-background align-baseline" id="new-page" style="max-width: 70%;">
   <div class="text-overlay">
     <h1 class="product-title mb-4 fw-bold"><strong>Nueva Consulta de Producto</strong></h1>
-    <div class="instructions">
+    <div class="instructions mt-5">
       <h2>Instrucciones: </h2>
       <div>
-        <p> <strong>Toma una foto al código de barras del alimnento que deseas verificar como apto para tu consumo</strong>
+        <p> Toma una foto al <strong>código de barras</strong> del alimento que deseas verificar como apto para tu consumo
       </div>
       </p>
       <div class="image-container">
@@ -42,8 +42,8 @@
   function showLoaderAndSubmit() {
 
     console.log("click en escanear")
-    // document.getElementById("new-page").style.display = 'none';
-    document.getElementById("new-page").setAttribute("hidden", "hidden");
+    
+    document.getElementById("new-page").style.display = 'none';
 
     // Mostrar el loader
     document.getElementById('load-msg').style.display = 'block';
