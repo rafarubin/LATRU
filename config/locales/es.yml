@@ -40,10 +40,11 @@ es:
       profile: "Perfil"
     attributes:
       profile:
-        username: 
+        username: "El nombre de perfil"
     errors:
       models:
         profile:
           attributes:
             username:
-              too_long: "El nombre de usuario es demasiado largo (máximo %{count} caracteres)"
+              too_long: "es demasiado largo (máximo %{count} caracteres)"
+              blank: "no puede estar vacío"
