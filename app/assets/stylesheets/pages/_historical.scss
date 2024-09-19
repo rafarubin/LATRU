@@ -1,6 +1,7 @@
 .card-historical {
   border: none;
   background-color: #f9f9f9;
+  border-radius: 15px;
   padding: 7px 14px;
   position: relative;
 }
@@ -8,6 +9,7 @@
 .card-historical-title {
   font-size: 16px;
   font-weight: 600;
+  color: #678D58;
 }
 
 .card-historical-text {
@@ -37,7 +39,7 @@
 }
 
 
-.historical-detail-title{
+.historical-detail-title, .card-historical-index-title{
     color: #678D58;
 }
 
@@ -71,7 +73,45 @@ p.text-muted-historical-show {
 
 .badge-historical-show {
   font-size: 0.8rem;
+  color: white;
+}
 
+.card-historical .fa-times {
+  font-size: 1.5rem;
+  cursor: pointer;
+
+}
+
+.button-back-profile{
+  margin-top: 10px;
+}
+.delete-historial-button{
+  background-color:white;
+  border-radius: 10px;
+  font-weight: bold;
+  border: none;
+  margin-left: 1em;
+
+}
+
+.btn-historial-back{
+  background-color: #678D58;
+  border-radius: 10px;
+}
+
+.btn-historical-share{
+  background-color: #d84d16;
+  border-radius: 10px;
+}
+
+.btn-historical-share:hover{
+  background-color: #d84d16;
+}
+.btn-historial-back:hover {
+  background-color: #678D58;
+}
+.btn-historical-recomendation{
+  border-radius: 10px;
 }
 
 @media (min-width: 769px) {

@@ -1,22 +1,30 @@
-<h1 class="mt-3 mb-4">Historial de Escaneo</h1>
+<div class="d-flex align-items-center mb-3">
+  <!-- Flecha de "Volver al perfil" -->
+  <%= link_to user_profile_path(@user, @profile), class: "btn btn-link text-decoration-none me-2 button-back-profile" do %>
+    <i class="fas fa-arrow-left"></i> <!-- Flecha de Font Awesome -->
+  <% end %>
+
+  <!-- Título "Historial de Escaneo" -->
+  <h1 class="mt-3 mb-0 text-center card-historical-index-title"><strong>Historial de Escaneo</strong></h1>
+</div>
 
 <% if @historicals.any? %>
   <div class="row">
     <% @historicals.each do |historical| %>
       <div class="col-12 mb-3">
-        <div class="card-historical shadow-sm rounded">
-          <div class="card-historical-body d-flex align-items-center">
+        <div class="card-historical shadow-sm position-relative">
+          <div class="card-historical-body d-flex align-items-center position-relative">
             <!-- Placeholder for product image -->
             <div class="me-3">
               <% if historical.product.photos.attached? %>
                 <%= cl_image_tag(historical.product.photos[0].key, width: 70, height: 70, crop: :fill, class: "rounded") %>
               <% else %>
-                <i class="fas fa-image fa-2x text-muted"></i> <!-- Show icon if no image -->
+                <i class="fas fa-image fa-2x text-muted"></i>
               <% end %>
             </div>
 
             <!-- Product information -->
-            <div class="flex-grow-1">
+            <div class="position-relative flex-grow-1">
               <h5 class="card-historical-title mb-1"><%= historical.product.name.truncate(30) %></h5>
               <p class="card-historical-text text-muted mb-2"><%= historical.product.brand %></p>
               <p class="card-historical-text mb-1">
@@ -33,15 +41,22 @@
               <p class="text-muted small">
                 <%= time_ago_in_words(historical.created_at) %> ago
               </p>
+               <a href="<%= user_profile_historical_path(@user, @profile, historical) %>" class="stretched-link" style="z-index: 1;"></a>
             </div>
 
-            <!-- Dots menu -->
-            <div class="text-muted">
-              <i class="fas fa-ellipsis-v"></i>
+         <div class="position-relative" style="z-index: 999;">
+            <%= button_to user_profile_historical_path(@user, @profile, historical),
+                          method: :delete,
+                          data: { confirm: "¿Estás seguro de que deseas eliminar este historial?" },
+                          class: "text-danger delete-historial-button" do %>
+              <i class="fas fa-times"></i>
+            <% end %>
+          </div>
+
             </div>
 
-            <!-- Link that covers the entire card-historical -->
-            <a href="<%= user_profile_historical_path(@user, @profile, historical) %>" class="stretched-link"></a>
+
+
           </div>
         </div>
       </div>
@@ -52,7 +67,6 @@
     No hay historiales para mostrar.
   </div>
 <% end %>
-<%= link_to 'Volver al perfil', user_profile_path(@user, @profile), class: "btn btn-secondary" %>
     <%= form_with url: user_profile_historicals_path, method: :get, class: "d-flex fixed-search" do %>
     <%= text_field_tag :query,
               params[:query],
