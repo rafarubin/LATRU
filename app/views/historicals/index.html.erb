@@ -7,10 +7,11 @@
   <!-- Título "Historial de Escaneo" -->
   <h1 class="mt-3 mb-0 text-center card-historical-index-title"><strong>Historial de Escaneo</strong></h1>
 </div>
-
+<div class="container-historical">
 <% if @historicals.any? %>
-  <div class="row">
+
     <% @historicals.each do |historical| %>
+    <div class="row">
       <div class="col-12 mb-3">
         <div class="card-historical shadow-sm position-relative">
           <div class="card-historical-body d-flex align-items-center position-relative">
@@ -75,3 +76,4 @@
           %>
         <%= submit_tag "Buscar", name: "", class: "btn btn-success" %>
       <% end %>
+</div>
