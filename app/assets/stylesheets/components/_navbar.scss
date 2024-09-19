@@ -39,7 +39,7 @@
 }
 
 .nav-item {
-  flex: 1;
+  // flex: 1;
   text-align: center;
   border: #000000;
 }
@@ -70,12 +70,12 @@
   justify-content: center;
   width: 62px;
   height: 62px;
-  background-color: #f7a204;
+  background-color: #1EDD88;
   color: rgb(0, 0, 0);
+  
   border-radius: 50%;
   font-size: 28px;
   text-transform: uppercase;
-  padding: 20px;
   border: 2px solid white;
   box-shadow: none;
   transition: background-color 0.3s, color 0.3s, border 0.3s;
@@ -99,4 +99,8 @@ a.avatar {
   top: auto;
   bottom: 100%;
   transform: translateY(-10px);
+}
+
+.ulc{
+  padding-left: 0px;
 }

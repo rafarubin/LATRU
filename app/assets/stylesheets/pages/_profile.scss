@@ -1,3 +1,6 @@
+.head{
+  border: 20px;
+}
 .profile-wrapper {
   display: flex;
   justify-content: flex-start;
@@ -262,6 +265,11 @@ input.form-control {
 
 .etrash {
   transform: scale(2.5);
+  padding: 20px;
+  margin-top: 20px ;
+  color: #252525;
+  margin-left: 110px;
+
 }
 
 .eprofile {transform: scale(1);}
@@ -316,7 +324,7 @@ input.form-control {
     text-align: center;
 }
 
-
+//
 @media (max-width: 768px) {
 
   .container {
@@ -332,6 +340,7 @@ input.form-control {
   h1, h2 {
     font-size: 1.5rem;
     text-align: center;
+    padding: 12px;
   }
 
   .form-group {
@@ -421,6 +430,7 @@ input.form-control {
 
   .badge-container {
     justify-content: center;
+
   }
 
   .badge {
@@ -438,4 +448,14 @@ input.form-control {
     align-items: center;
     justify-content: center;
   }
+
+
+}
+
+.profile-img-show{
+  width: 60px;
+  height: 60px;
+  // border: 8px;
+  margin-right: 8px;
+  object-fit: cover
 }
