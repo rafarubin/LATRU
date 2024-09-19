@@ -62,3 +62,12 @@
     No hay historiales para mostrar.
   </div>
 <% end %>
+<%= link_to 'Volver al perfil', user_profile_path(@user, @profile), class: "btn btn-secondary" %>
+    <%= form_with url: user_profile_historicals_path, method: :get, class: "d-flex fixed-search" do %>
+    <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Busca un producto escaneado"
+          %>
+        <%= submit_tag "Buscar", name: "", class: "btn btn-success" %>
+      <% end %>

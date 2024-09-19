@@ -3,5 +3,5 @@ class Profile < ApplicationRecord
   has_many :historicals, dependent: :destroy
 
   validates :username, presence: true
-  validates :username, length: { maximum: 6 }
+  validates :username, length: { maximum: 12 }
 end

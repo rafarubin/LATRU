@@ -3,9 +3,9 @@
     <div class="col-12 col-10 bg-white p-4 shadow">
       <%= simple_form_for([@user, @profile], html: { data: { turbo: false } }) do |form| %>
 
-        <div class="form-group">
-          <%= form.input :username, label: 'Nombre', placeholder: 'Nombre de 06 caracteres' %>
-        </div>
+          <div class="form-group">
+            <%= form.input :username, label: 'Nombre', placeholder: 'Ingrese nombre' %>
+          </div>
 
         <div class="form-group">
           <%= form.label :image, 'Elije una imagen' %>
@@ -99,7 +99,6 @@
               <%= form.label :vegan, 'Vegano', class: 'tag-selector-label' %>
             </div>
           </div>
-        </div>
 
         <div class="actions d-flex">
           <% if @profile.new_record? %>
@@ -113,4 +112,3 @@
       <% end %>
     </div>
   </div>
-</div>
