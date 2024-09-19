@@ -4,6 +4,9 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  //animacion del boton pulsante
+  animation: pulse 3s infinite; /* Duración de 3 segundos, ciclo infinito */
+  transition: transform 0.5s ease-in-out;
 }
 
 .home-title{
@@ -144,4 +147,16 @@ body{
     font-size: 16px;
   }
 
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Tamaño original */
+  }
+  50% {
+    transform: scale(1.2); /* Aumenta un 20% */
+  }
+  100% {
+    transform: scale(1); /* Vuelve al tamaño original */
+  }
 }
