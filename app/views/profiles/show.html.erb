@@ -2,10 +2,16 @@
   <div class="row d-flex justify-content-center align-items-center">
     <div class="col-12 col-10 bg-white p-4 shadow">
 
-      <h1><%= @profile.username %>
+      <h1 class= "d-flex justify-content-center align-items-center">
+        <%= image_tag @profile.image, class: "profile-image profile-img-show" %>
+        <%= @profile.username %>
         <%= link_to edit_user_profile_path(@user, @profile), class: 'ms-5' do %>
-          <i class="eprofile fas fa-pencil-alt fa-xs " style="color: black;"></i>
-        <% end %></h1>
+          <i class="eprofile fas fa-pencil-alt fa-xs "></i>
+        <% end %>
+        <%= link_to user_profile_path(@user, @profile), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de que deseas eliminar el perfil?' } do %>
+        <i class="fas fa-trash-alt etrash mt-2"></i>
+        <% end %>
+      </h1>
 
       <div class="badge-container d-flex flex-wrap mt-4">
         <% {
@@ -26,13 +32,11 @@
         <% end %>
       </div>
 
-      <div class="mb-3 mt-4 ">
+      <div class="mb-3 mt-4 scan d-flex justify-content-center">
         <%= link_to 'Escanear producto', new_user_profile_barcode_path(@user, @profile), class: 'btn btn-info btn-lg rounded-pill px-5 py-3', style: 'padding: 50px;' %>
       </div>
 
-      <%= link_to user_profile_path(@user, @profile), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de que deseas eliminar el perfil?' } do %>
-        <i class="fas fa-trash-alt etrash mt-2"></i>
-      <% end %>
+
 
     </div>
   </div>

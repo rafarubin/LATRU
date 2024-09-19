@@ -1,9 +1,12 @@
-<%= simple_form_for [@user, @profile, @product] do |f| %>
+<%= simple_form_for [@user, @profile, @product],
+  html: {
+    id: "new-form",
+  }  do |f| %>
   <%= turbo_frame_tag "form1" do %>
    <div class="custom-file">
-      <%= f.input :photos, as: :file, input_html: { multiple: true, class: "custom-file-input", id: "file-input", onchange: "this.form.submit();", style: "display: none;"}, label: false  %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true, class: "custom-file-input", id: "file-input", onchange: "showLoaderAndSubmit();", style: "display: none;"}, label: false  %>
       <%= f.input :barcode, :as => :hidden, input_html: { value: params[:param1] } %>
-      <label for="file-input" class="custom-file-btn">Escanear</label>
+      <label for="file-input" class="custom-file-btn">Escanear parte delantera</label>
     </div>
   <% end %>
 <% end %>

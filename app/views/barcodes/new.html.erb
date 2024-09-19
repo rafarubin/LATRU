@@ -1,11 +1,11 @@
 
-<div class = "container mt-1 text-justify product-background align-baseline" id="new-page" style="max-width: 70%;">
+<div class = "container mt-1 text-justify" id="new-page" style="max-width: 70%; height: 70vh;">
   <div class="text-overlay">
     <h1 class="product-title mb-4 fw-bold"><strong>Nueva Consulta de Producto</strong></h1>
-    <div class="instructions">
+    <div class="instructions mt-5">
       <h2>Instrucciones: </h2>
       <div>
-        <p> <strong>Toma una foto al código de barras del alimnento que deseas verificar como apto para tu consumo</strong>
+        <p> Toma una foto al <strong>código de barras</strong> del alimento que deseas verificar como apto para tu consumo
       </div>
       </p>
       <div class="image-container">
@@ -24,29 +24,29 @@
                                                     id: "file-input",
                                                     onchange: "showLoaderAndSubmit();",
                                                     style: "display: none;"}, label: false  %>
-          <label for="file-input" class="custom-file-btn">Escanear</label>
+          <label for="file-input" class="btn-scan">Escanear</label>
         </div>
       <% end %>
     </div>
   </div>
   <div>
-    <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile), class: "btn btn-primary mt-3" %>
+    <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile), class: "btn-return btn btn-primary mt-3" %>
   </div>
 </div>
-<div id= "load-msg" style = "display: none;" class="container d-flex justify-content-center mt-5 text-justify mt-2 align-middle">
+<div id= "load-msg" style = "display: none;" class="container justify-content-center mt-5 align-items-center">
   <h3 id= "loading-text" style = "display: none;">Estamos analizando tu producto, solo tomará unos segundos.</h3>
   <div id="loader" class="loader" style="display: none;" ></div>
 </div>
 
 <script>
   function showLoaderAndSubmit() {
-
     console.log("click en escanear")
-    // document.getElementById("new-page").style.display = 'none';
-    document.getElementById("new-page").setAttribute("hidden", "hidden");
+
+    document.getElementById("new-page").style.display = 'none';
 
     // Mostrar el loader
     document.getElementById('load-msg').style.display = 'block';
+    document.getElementById('load-msg').classList.add("f-flex");
     document.getElementById('loading-text').style.display = 'block';
     document.getElementById('loader').style.display = 'block';
 

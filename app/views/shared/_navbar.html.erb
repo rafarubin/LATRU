@@ -25,8 +25,10 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Mis Perfiles", user_profiles_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+              <%= link_to "Mis perfiles", user_profiles_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Historial", user_profile_historicals_path(user_id: current_user.id, profile_id: @profile.id), class: "dropdown-item" %>
+              <%= link_to "Salir", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+
             </div>
           </li>
         <% else %>
@@ -41,38 +43,38 @@
 <% if user_signed_in? %>
   <div class="navbar navbar-expand-sm navbar-light d-lg-none fixed-bottom mb-12">
     <div class="container-fluid">
-      <div class="d-flex justify-content-between align-items-center w-100">
-
-        <ul class="nav-item dropup mb-12">
-          <a href="#" class="avatar" id="navbarDropdownMobile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="d-flex justify-content-around align-items-center w-100">
+        <ul class=" dropup mb-12 ulc ">
+          <a href="" class="avatar" id="navbarDropdownMobile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="avatar-initials mb-12">
+
               <%= current_user.initials %>
             </div>
           </a>
           <div class="dropdown-menu dropdown-slide-up" aria-labelledby="navbarDropdownMobile">
-            <%= link_to "Mis Perfiles", user_profiles_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+            <%= link_to "Mis perfiles", user_profiles_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Salir", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
           </div>
         </ul>
 
 
-        <div class="d-flex justify-content-around align-items-center w-100 mb-12">
-           <div class="nav-item text-center">
-              <% if current_user && (params[:profile_id] || @profile&.id) %>
-                <%= link_to new_user_profile_barcode_path(user_id: current_user.id, profile_id: @profile.id), class: "nav-link" do %>
-                  <i class="fas fa-camera" style="font-size: 2.5rem;"></i>
-                  <p class="small mb-0">Escáner</p>
-                <% end %>
-              <% end %>
-            </div>
 
-          <div class="nav-item text-center">
-            <%= link_to user_profile_historicals_path(user_id: current_user.id, profile_id: @profile.id), class: "nav-link" do %>
-              <i class="fa-solid fa-clipboard-list" style="font-size: 2.5rem;"></i>
-              <p class="small mb-0">Historial</p>
-           <% end %>
-          </div>
+        <div class="nav-item text-center">
+          <% if current_user && (params[:profile_id] || @profile&.id) %>
+            <%= link_to new_user_profile_barcode_path(user_id: current_user.id, profile_id: @profile.id), class: "nav-link" do %>
+              <i class="fas fa-camera" style="font-size: 2.5rem;"></i>
+              <p class="small mb-0">Escanear</p>
+            <% end %>
+          <% end %>
         </div>
+
+        <div class="nav-item text-center">
+          <%= link_to user_profile_historicals_path(user_id: current_user.id, profile_id: @profile.id), class: "nav-link" do %>
+            <i class="fa-solid fa-clipboard-list" style="font-size: 2.5rem;"></i>
+            <p class="small mb-0">Historial</p>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>

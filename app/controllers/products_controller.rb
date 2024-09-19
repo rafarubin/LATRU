@@ -20,8 +20,7 @@ class ProductsController < ApplicationController
     if params[:product][:photos].present? && params[:product][:photos].count == 2
       if @product.save
 
-        render :edit
-
+        redirect_to edit_user_profile_product_path(@user, @profile, @product)
         else
           render :new, status: :unprocessable_entity, notice: "Debes tomar o adjuntar 1 foto delantera del producto"
         end
