@@ -4,7 +4,7 @@ class HistoricalsController < ApplicationController
     @profile = Profile.find(params[:profile_id])
     @historicals = Historical.where(profile_id: @profile.id)
     if params[:query].present?
-      @historicals = Historical.search_product(params[:query])
+      @historicals =   Historical.search_by_product_name_and_brand(params[:query]).where(profile_id: @profile.id)
     end
   end
 
