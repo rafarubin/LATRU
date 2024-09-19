@@ -24,13 +24,13 @@
                                                     id: "file-input",
                                                     onchange: "showLoaderAndSubmit();",
                                                     style: "display: none;"}, label: false  %>
-          <label for="file-input" class="custom-file-btn">Escanear</label>
+          <label for="file-input" class="btn-scan">Escanear</label>
         </div>
       <% end %>
     </div>
   </div>
   <div>
-    <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile), class: "btn btn-primary mt-3" %>
+    <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile), class: "btn-return btn btn-primary mt-3" %>
   </div>
 </div>
 <div id= "load-msg" style = "display: none;" class="container justify-content-center mt-5 text-justify mt-2 align-middle">
