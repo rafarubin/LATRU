@@ -1,10 +1,10 @@
 class HistoricalsController < ApplicationController
+  before_action :set_user_and_profile, only: [:index, :show, :destroy]
+
   def index
-    @user = User.find(params[:user_id])
-    @profile = Profile.find(params[:profile_id])
     @historicals = Historical.where(profile_id: @profile.id)
     if params[:query].present?
-      @historicals =   Historical.search_by_product_name_and_brand(params[:query]).where(profile_id: @profile.id)
+      @historicals = Historical.search_by_product_name_and_brand(params[:query]).where(profile_id: @profile.id)
     end
   end
 
@@ -37,7 +37,6 @@ class HistoricalsController < ApplicationController
       end
     end
 
-    # recomendaciones
     @recom = @historical.recom_answer(@attributes_to_display)
   end
 

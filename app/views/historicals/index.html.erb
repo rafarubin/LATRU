@@ -12,7 +12,7 @@
   <div class="row">
     <% @historicals.each do |historical| %>
       <div class="col-12 mb-3">
-        <div class="card-historical shadow-sm rounded position-relative">
+        <div class="card-historical shadow-sm position-relative">
           <div class="card-historical-body d-flex align-items-center position-relative">
             <!-- Placeholder for product image -->
             <div class="me-3">
@@ -43,14 +43,14 @@
               </p>
             </div>
 
-            <!-- Icono de X para eliminar historial -->
+
             <div class="position-relative" style="z-index: 999;">
               <%= link_to user_profile_historical_path(@user, @profile, historical), method: :delete, data: { confirm: "¿Estás seguro de que deseas eliminar este historial?" }, class: "text-danger", style: "cursor: pointer;" do %>
                 <i class="fas fa-times"></i>
               <% end %>
             </div>
 
-            <!-- Link que cubre toda la card-historical excepto el menú de puntos -->
+
             <a href="<%= user_profile_historical_path(@user, @profile, historical) %>" class="stretched-link" style="z-index: 1;"></a>
           </div>
         </div>
