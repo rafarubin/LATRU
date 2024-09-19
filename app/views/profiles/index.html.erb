@@ -8,7 +8,7 @@
             <input class="profile-selector" type="radio" id="profile_<%= profile.id %>" name="profile" value="<%= profile.id %>">
             <label for="profile_<%= profile.id %>" class="profile-label">
               <%= link_to user_profile_path(@user, profile), class: "profile-link" do %>
-                 <%= image_tag profile.image, class:"profile-image"%>
+                <%= image_tag profile.image, class:"profile-image"%>
                 <div class="profile-content">
                   <div class="profile-name">
                     <strong><%= profile.username %></strong>
