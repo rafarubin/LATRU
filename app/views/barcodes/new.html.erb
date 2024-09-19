@@ -2,10 +2,10 @@
 <div class = "container mt-1 text-justify product-background align-baseline" id="new-page" style="max-width: 70%;">
   <div class="text-overlay">
     <h1 class="product-title mb-4 fw-bold"><strong>Nueva Consulta de Producto</strong></h1>
-    <div class="instructions">
+    <div class="instructions mt-5">
       <h2>Instrucciones: </h2>
       <div>
-        <p> <strong>Toma una foto al código de barras del alimnento que deseas verificar como apto para tu consumo</strong>
+        <p> Toma una foto al <strong>código de barras</strong> del alimnento que deseas verificar como apto para tu consumo
       </div>
       </p>
       <div class="image-container">
@@ -24,13 +24,13 @@
                                                     id: "file-input",
                                                     onchange: "showLoaderAndSubmit();",
                                                     style: "display: none;"}, label: false  %>
-          <label for="file-input" class="custom-file-btn">Escanear</label>
+          <label for="file-input" class="custom-animated-btn">Escanear</label>
         </div>
       <% end %>
     </div>
   </div>
   <div>
-    <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile), class: "btn btn-primary mt-3" %>
+    <%= link_to "Volver a Mi Perfil", user_profile_path(@user, @profile), class: "btn-return btn btn-primary mt-3" %>
   </div>
 </div>
 <div id= "load-msg" style = "display: none;" class="container d-flex justify-content-center mt-5 text-justify mt-2 align-middle">
