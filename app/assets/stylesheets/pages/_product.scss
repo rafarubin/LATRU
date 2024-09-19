@@ -1,9 +1,9 @@
 body{
-  background-color: #FFF8EC;
+  background-color: #FFFFDD;
 }
 
 .product-title{
-  color: #678D58;
+  color: #61A3BA;
 }
 
 #loading{
@@ -16,12 +16,12 @@ body{
   margin: 0 auto;
 }
 .loading-text{
-  color: #678D58;
+  color: #61A3BA;
   font-weight: bold;
 }
 
 .product-scan-button{
-  background-color: #1EDD88;
+  background-color: #61A3BA;
   color: white;
   border: none;
   border-radius: 25px;
@@ -36,7 +36,7 @@ body{
 }
 
 .custom-file-btn {
-  background-color: #1EDD88;
+  background-color: #61A3BA;
   border-radius: 10px;
   color: white;
   font-weight: bold;
@@ -48,7 +48,7 @@ body{
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
-  width: 150px;
+  width: 300px;
   text-align: center;
 }
 
@@ -80,7 +80,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
-    width: 150px;
+    width: 300px;
     text-align: center;
   }
 
@@ -94,7 +94,7 @@ body{
     color: #FFF8EC;
   }
   .custom-file-btn:hover {
-    background-color: #5bbd9a;
+    background-color: #61A3BA;
   }
 
   .custom-file-label {
@@ -131,23 +131,24 @@ body{
     max-width: 100%;
   }
   .centered-img {
-    max-width: 50%;
+    max-width: 30%;
   }
 
   .custom-file-btn {
     display: flex;
-    background-color: #1EDD88;
-    width: 120px;
-    height: 40px;
-    padding-left: 24px;
-    padding-right: 24px;
-    font-size: 18px;
+    background-color: #61A3BA;
+    width: 180px;
+    height: 60px;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 16px;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .custom-file-btn:hover {
-    background-color: #5bbd9a;
+    background-color: #61A3BA;
   }
 
   .custom-file-input {
