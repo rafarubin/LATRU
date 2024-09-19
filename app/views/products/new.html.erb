@@ -1,17 +1,14 @@
-<div class="container mt-4">
+<div class="container mt-2">
   <h1 class="product-title mb-4 fw-bold">Instrucciones para escaneo</h1>
-  <%= image_tag "products/supermarket.png", alt: "Girl scanning supermarket products", width: 200, class: "centered-img mb-5"  %>
-  <p class="mb-5"> 1. Toca el botón  de "Escanear" para abrir la cámara. <br>
-      <br>
-      2. Concede Permiso: Si se te solicita, permite que
-      la aplicación acceda a tu cámara. <br>
-      <br>
-      3. Captura frontal: Toma una foto de la parte delantera del producto, asegúrate que la foto sea nítida y se puedan visualizar el nombre del producto, la marca y el contenido neto. <strong>Mientras más información captures, será mejor 😎</strong>. <br>
-      <br>
-      4. Espera unos segundos y te redirigiremos a la toma de la foto trasera.
-
-      </p>
-    <%= render 'form1', user: @user, profile: @profile, product: @product %>
+  <%= image_tag "products/supermarket.png", alt: "Girl scanning supermarket products", width: 200, class: "centered-img mb-4"  %>
+  <div class="product-new-text p-3">
+    <p class="mb-2"> 1. Toca el botón  de "Escanear" para abrir la cámara. <br>
+        <br>
+        2. <strong>Captura la parte frontal </strong>  del producto, asegúrate que la foto sea nítida y se puedan visualizar el nombre del producto, la marca y el contenido neto. <br>
+        <br>
+        3. Espera unos segundos y te redirigiremos a la toma de la foto trasera.
+        </p>
+  </div>   <%= render 'form1', user: @user, profile: @profile, product: @product %>
 </div>
 <script>
 

@@ -1,5 +1,5 @@
 
-<div class = "container mt-1 text-justify product-background align-baseline" id="new-page" style="max-width: 70%; min-height: 100vh; overflow: hidden;">
+<div class = "container mt-1 text-justify product-background align-baseline" id="new-page" style="max-width: 70%;">
   <div class="text-overlay">
     <h1 class="product-title mb-4 fw-bold"><strong>Nueva Consulta de Producto</strong></h1>
     <div class="instructions">
@@ -9,10 +9,8 @@
       </div>
       </p>
       <div class="image-container">
-        <%# animacion JSON %>
+        <%# <%= image_tag "scanner.png", alt: "scanner", class: "img-barcode" %>
         <div id="lottie-container" style="margin: auto;" ></div>
-        <%#= image_tag "scan.gif", alt: "Cargando", id: "scan-gif" %>
-
       </div>
     </div>
     <div class="form">
@@ -36,11 +34,19 @@
   </div>
 </div>
 <div id= "load-msg" style = "margin: auto; display: none;" class="container d-flex justify-content-center mt-5 text-justify mt-2 align-middle">
-  <h3 class= "loading-text" style = "margin: auto; display: none;">Estamos analizando tu producto, solo tomará unos segundos.</h3>
+  <h3 class= "loading-text">Estamos analizando tu producto, solo tomará unos segundos.</h3>
   <div id="loader" class="loader" style="display: none;" ></div>
 </div>
 
 <script>
+  // function showLoaderAndSubmit() {
+  //   // Mostrar el loader
+  //   document.getElementById('loader').style.display = 'block';
+
+  //   // Enviar el formulario
+  //   document.getElementById('photo-form').submit();
+  // }
+
 document.addEventListener("DOMContentLoaded", function() {
     const container = document.getElementById('lottie-container');
     lottie.loadAnimation({
