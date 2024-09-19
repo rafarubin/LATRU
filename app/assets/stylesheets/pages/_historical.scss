@@ -1,6 +1,7 @@
 .card-historical {
   border: none;
   background-color: #f9f9f9;
+  border-radius: 15px;
   padding: 7px 14px;
 }
 
@@ -71,6 +72,11 @@ p.text-muted-historical-show {
 .badge-historical-show {
   font-size: 0.8rem;
 
+}
+
+.card-historical .fa-times {
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 @media (min-width: 769px) {
