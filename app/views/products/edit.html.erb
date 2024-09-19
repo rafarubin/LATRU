@@ -1,18 +1,16 @@
-<div id= "loading" style = "margin: auto; display: none;">
-  <div id="lottie-container" style="margin: auto;"></div>
+<div id= "loading"  class="container" style = "margin: auto; display: none;">
+  <div id="lottie-container"></div>
   <h3 class= "loading-text">Estamos analizando tu producto, solo tomará unos segundos.</h3>
 </div>
 <div class="container", id= "edit-page">
-  <h1 class="product-title mb-4 fw-bold">Instrucciones para escaneo</h1>
-  <%= image_tag "products/escaneo-edit.png", alt: "Girl scanning supermarket products", width: 200, class: "centered-img mb-5"  %>
-  <p class="mb-5"> 1. Toca el botón  de "Escanear" para abrir la cámara. <br>
+  <h1 class="product-title fw-bold">Instrucciones para escanear la parte trasera</h1>
+  <%= image_tag "products/milk-back.png", alt: "Milk box nutritional facts", width: 200, class: "centered-img "  %>
+
+  <p class="mb-2 p-3"> 1. Toca el botón  de "Escanear" para abrir la cámara. <br>
       <br>
-      2. Concede Permiso: Si se te solicita, permite que
-      la aplicación acceda a tu cámara. <br>
+      2. Captura la parte trasera del producto, asegurándote que se vea claramente la <strong>tabla nutricional y relación de ingredientes.</strong> <br>
       <br>
-      3. Captura trasera: Toma una foto de la parte trasera del producto, asegurándote que se vea claramente la <strong>tabla nutricional y relación de ingredientes.</strong> <br>
-      <br>
-      4. ¡Listo! Espera unos segundos para ver tus resultados.
+      3. ¡Listo! Espera unos segundos para ver tus resultados.
 
       </p>
     <%= render 'form2', user: @user, profile: @profile, product: @product %>
@@ -24,7 +22,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const container = document.getElementById('lottie-container');
     lottie.loadAnimation({
-      container: container, // the DOM element to render the animation in
+      container: container,
       renderer: 'svg',
       loop: true,
       autoplay: true,
@@ -32,11 +30,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
   function showLoaderAndSubmit() {
-    document.getElementById("edit-page").setAttribute("hidden", "hidden");
+    document.getElementById("edit-page").style.display = 'none';
 
     // Mostrar el loader
     document.getElementById('loading').style.position = 'relative';
-    document.getElementById('loading').style.display = 'block';
+    document.getElementById('loading').style.display = 'flex';
 
 
     // Enviar el formulario

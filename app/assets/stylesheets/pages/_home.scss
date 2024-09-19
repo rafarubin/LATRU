@@ -53,7 +53,7 @@ body{
 }
 
 .custom-home-btn {
-  background-color: #74D3AE;
+  background-color: #1EDD88;
   border-radius: 10px;
   color: white;
   font-weight: bold;
@@ -70,6 +70,13 @@ body{
   text-decoration: none;
 }
 
+.home-text{
+  em{
+    color: #d84d16;
+    font-weight: bold;
+  }
+
+}
 
 @media (min-width: 769px) {
   .home-logo{
@@ -102,6 +109,10 @@ body{
     width: 200px;
     text-align: center;
   }
+
+  .home-text{
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -119,7 +130,7 @@ body{
 
   .custom-home-btn {
     display: flex;
-    background-color: #74D3AE;
+    background-color: #1EDD88;
     width: 150px;
     height: 40px;
     padding-left: 12px;
@@ -127,6 +138,10 @@ body{
     font-size: 16px;
     align-items: center;
     justify-content: center;
+  }
+
+  .home-text{
+    font-size: 16px;
   }
 
 }

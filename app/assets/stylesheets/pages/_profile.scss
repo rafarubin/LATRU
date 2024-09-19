@@ -117,6 +117,7 @@
   display: block;
   color: inherit;
   z-index: 0;
+  padding: 25px;
 }
 
 .edit-profile-icon {
@@ -411,7 +412,7 @@ input.form-control {
 
   .eprofile .btn{
     color: #61A3BA;
-    
+
   }
   .edit-profile-icon .btn {
     font-size: 20px;
@@ -438,24 +439,39 @@ input.form-control {
     align-items: center;
     justify-content: center;
   }
+  .profile-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+  }
+
+  .profile-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    z-index: 0;
+    padding: 0px;
+  }
 
 
+  .btn-info{
+    background-color: #61A3BA;
+    border-color: #61A3BA;
+    color: #ffffff;
+  }
+  .btn-info:hover{
+    color: #000000;
+    background-color: #D2DE32;
+    border-color: #61A3BA;
+  }
 }
+
 
 .profile-img-show{
   width: 60px;
   height: 60px;
   margin-right: 8px;
   object-fit: cover
-}
-
-.btn-info{
-  background-color: #61A3BA;
-  border-color: #61A3BA;
-  color: #ffffff;
-}
-.btn-info:hover{
-  color: #000000;
-  background-color: #D2DE32;
-  border-color: #61A3BA;
 }
