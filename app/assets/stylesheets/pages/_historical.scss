@@ -4,6 +4,7 @@
   border-radius: 15px;
   padding: 7px 14px;
   position: relative;
+
 }
 
 .card-historical-title {
@@ -49,6 +50,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-left: 15px;
   margin-right: 15px;
+  margin-bottom: 80px;
 }
 
 .card-historical-show-body {
@@ -136,4 +138,8 @@ p.text-muted-historical-show {
     width:70%;
      }
 
+}
+
+.container-historical{
+  margin-bottom: 80px;
 }
