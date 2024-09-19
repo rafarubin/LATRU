@@ -1,4 +1,6 @@
-/* HTML: <div class="loader"></div> */
+body{
+  background-color: #FFFFDD;
+}
 .loader {
   width: 120px;
   height: 20px;
@@ -41,4 +43,31 @@
 #scan-gif {
   width: 180px;
   height: auto;
+}
+
+.btn-scan {
+  background-color: #61a3ba;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 30px;
+  transition: background-color 0.3s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  width: 180px;
+  padding: 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-return {
+  background-color: #A2C579;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
