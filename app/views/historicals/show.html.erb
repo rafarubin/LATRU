@@ -20,8 +20,7 @@
 
     <!-- Nutrition Information Section -->
     <div class="mt-4 p-3 shadow-sm-historical-show rounded-historical-show border">
-      <h5 class="card-title"><strong>Información Nutricional</strong></h5>
-      <p class="text-muted-historical-show">Contiene</p>
+      <h5 class="card-title"><strong>Restricciones:</strong></h5>
       <p class="card-text product-attribute-historical-show">
         <% if @attributes_to_display.any? %>
           <% @attributes_to_display.each do |attribute| %>
@@ -39,44 +38,62 @@
     <!-- Buttons at the Bottom (Escanear otro, Compartir, Historial) -->
     <div class="d-flex flex-column flex-md-row justify-content-between mt-4">
   <%= link_to 'Escanear otro', new_user_profile_barcode_path(@user, @profile), class: "btn btn-historical-share text-white mb-2 mb-md-0" %>
-  <%= link_to 'Recomendaciones', '#', class: "btn btn-success btn-historical-recomendation text-white mb-2 mb-md-0 mx-md-2", id: "recom-btn", onclick: "getRecommendations();" %>
+  <%= link_to '⚡Recomendaciones 🤖IA', '#', class: "btn btn-success btn-historical-recomendation text-white mb-2 mb-md-0 mx-md-2", id: "recom-btn", onclick: "getRecommendations();" %>
   <%= link_to 'Historial', user_profile_historicals_path(@user, @profile), class: "btn btn-historial-back text-white" %>
 </div>
 
   </div>
-    <div class="container mt-1 text-justify product-background align-baseline" id="recommendations" style="max-width: 85%;display: none; ">
+    <div class="container mt-1 text-justify" id="recommendations" style="max-width: 85%;display: none; ">
     <h3><strong>Recomendaciones:</strong></h3>
-    <div id="recommendations-content">
-      <p><%#= @recom %></p>
-      <br>
-      <p><strong>Opción 1:</strong> </p>
-      <ul>
-        <li><strong>Nombre: </strong><%= @recom["item_1"]["product_name"] %></li>
-        <li><strong>Marca:</strong> <%= @recom["item_1"]["brand_name"] %></li>
-        <li><strong>Detalle:</strong> <%= @recom["item_1"]["description"] %></li>
+    <div id="recommendations-content" class="row">
+      <div id="animation-ia" class="col-md-4 col-sm-4 d-flex"></div>
+      <div id="text-recom" class="col-md-8 col-sm-8">
+        <div class="card recom-box">
+          <p><strong>Opción 1:</strong> </p>
+          <ul>
+            <li><strong>Nombre: </strong><%= @recom["item_1"]["product_name"] %></li>
+            <li><strong>Marca:</strong> <%= @recom["item_1"]["brand_name"] %></li>
+            <li><strong>Detalle:</strong> <%= @recom["item_1"]["description"] %></li>
+          </ul>
+        </div>
+        <div class="card recom-box">
+          <p><strong>Opción 2:</strong> </p>
+          <ul>
+            <li><strong>Nombre: </strong><%= @recom["item_2"]["product_name"] %></li>
+            <li><strong>Marca:</strong> <%= @recom["item_2"]["brand_name"] %></li>
+            <li><strong>Detalle:</strong> <%= @recom["item_2"]["description"] %></li>
+          </ul>
+        </div>
+      </div>
 
-      </ul>
-      <br>
-      <p><strong>Opción 2:</strong> </p>
-      <ul>
-        <li><strong>Nombre: </strong><%= @recom["item_2"]["product_name"] %></li>
-        <li><strong>Marca:</strong> <%= @recom["item_2"]["brand_name"] %></li>
-        <li><strong>Detalle:</strong> <%= @recom["item_2"]["description"] %></li>
-
-      </ul>
     </div>
   </div>
 
 </div>
 <script>
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const container = document.getElementById('animation-ia');
+    lottie.loadAnimation({
+      container: container,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '<%= asset_path("/animations/recom-ia.json") %>'
+    });
+   });
+
   function getRecommendations() {
     event.preventDefault();
     var recommendationsDiv = document.getElementById('recommendations');
 
     if (recommendationsDiv.style.display === 'none' || recommendationsDiv.style.display === '') {
       recommendationsDiv.style.display = 'block';
+    // Desplazamiento automático hacia las recomendaciones
+      recommendationsDiv.scrollIntoView({ behavior: 'smooth' });
     } else {
       recommendationsDiv.style.display = 'none';
     }
+
   }
 </script>
