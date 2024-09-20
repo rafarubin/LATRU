@@ -286,16 +286,23 @@ input.form-control {
   border: 2px solid;
   max-width: 100px;
   transition: border 0.3s ease;
-  border-color: #007bff;
+  border-color: #D2DE32;
+  border: 20%;
+  transform: scale(1.2);
+  border-color: #D2DE32;
+  border-radius: 50%;
+
 }
 
 
 .image-radio-input:checked + .image-radio-label .selectable-image {
-  background-color: #007bff;
+  background-color: #D2DE32;
+  border-color: #D2DE32;
+  border-radius: 50%;
 }
 
 .profile-button{
-    background-color: #BFD202;
+    background-color: #61A3BA;
     border-radius: 10px;
     color: white;
     font-weight: bold;
@@ -312,6 +319,16 @@ input.form-control {
     text-align: center;
 }
 
+.btn-info{
+  background-color: #61A3BA;
+  border-color: #61A3BA;
+  color: #ffffff;
+}
+.btn-info:hover{
+  color: #000000;
+  background-color: #D2DE32;
+  border-color: #61A3BA;
+}
 //
 @media (max-width: 768px) {
 
@@ -358,11 +375,15 @@ input.form-control {
     border: 2px solid;
     max-width: 60px;
     transition: border 0.3s ease;
-    border-color: #007bff;
+    border-color: #D2DE32;
+    border-radius: 50%;
   }
 
   .image-radio-input:checked + .image-radio-label .selectable-image {
-    border-color: #007bff;
+    border-color: #D2DE32;
+    background-color: #D2DE32;;
+    border-color: #D2DE32;
+    border-radius: 50%;
   }
 
   .checkbox-group {
@@ -433,11 +454,10 @@ input.form-control {
 
   .profile-button{
     display: flex;
-    background-color: #61A3BA;
+    background-color: 61A3BA;
     color: white;
     width: 50%;
     height: 40px;
-
     font-size: 14px;
     align-items: center;
     justify-content: center;
