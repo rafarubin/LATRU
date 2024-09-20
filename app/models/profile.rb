@@ -4,4 +4,5 @@ class Profile < ApplicationRecord
 
   validates :username, presence: true
   validates :username, length: { maximum: 12 }
+  validates :image, presence: true
 end
